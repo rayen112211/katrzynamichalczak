@@ -9,10 +9,11 @@ Wymagany jest Node.js 20 lub nowszy.
 ```bash
 npm run build
 npm run check
+npm run check:links
 npm run dev
 ```
 
-Podgląd lokalny działa pod adresem `http://127.0.0.1:4173`.
+Podgląd lokalny działa pod adresem `http://127.0.0.1:4173`. Kontrola linków wymaga połączenia z internetem.
 
 ## Publikacja
 

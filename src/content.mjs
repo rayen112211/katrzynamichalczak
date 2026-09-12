@@ -1,53 +1,79 @@
 export const biography = `Urodziłam się w 1981 roku w Miechowie, mieście, w którym odkryto 1,5 km podziemnych średniowiecznych korytarzy. Jestem poetką, pisarką, członkinią Unii Literackiej. W 2015 roku obroniłam doktorat z socjologii na ISNS UW. Za projekt tomu „Pamięć przyjęć” otrzymałam Nagrodę Główną XXII Ogólnopolskiego Konkursu Poetyckiego im. Jacka Bierezina w 2016 roku, a wcześniej, w 2013 roku, Nagrodę Specjalną tego konkursu za projekt tomu „Zrujnuję się na rukolę”. Tom „Pamięć przyjęć” zdobył też pierwsze miejsce w Ogólnopolskim Konkursie Literackim im. Artura Fryza na najlepszy poetycki debiut książkowy roku 2017, a kolejny tom, „Tysiąc saun”, był nominowany do Nagrody KOS w 2021 roku. Moja książka z opowiadaniami, „Klub snów”, była nominowana do Nagrody Literackiej Gdynia w 2020 roku. A potem napisałam kilka innych książek, gdyż z roku na rok staje się to dla mnie coraz ważniejsze.`;
 
+export const awards = [
+  { year: "2013", text: "Nagroda Specjalna Ogólnopolskiego Konkursu Poetyckiego im. Jacka Bierezina za projekt tomu „Zrujnuję się na rukolę”" },
+  { year: "2016", text: "Nagroda Główna XXII Ogólnopolskiego Konkursu Poetyckiego im. Jacka Bierezina za projekt tomu „Pamięć przyjęć”" },
+  { year: "2017", text: "Pierwsze miejsce w Ogólnopolskim Konkursie Literackim im. Artura Fryza na najlepszy poetycki debiut książkowy roku 2017 za tom „Pamięć przyjęć”" },
+  { year: "2020", text: "Nominacja książki „Klub snów” do Nagrody Literackiej Gdynia" },
+  { year: "2021", text: "Nominacja tomu „Tysiąc saun” do Nagrody KOS" }
+];
+
 export const books = [
   {
     title: "Pamięć przyjęć",
     year: "2016",
     details: "wiersze, Dom Literatury w Łodzi; Pierwsza Nagroda w konkursie im. Jacka Bierezina 2017, Nagroda Główna w konkursie Złoty Środek Poezji 2017",
-    image: "/images/book-pamiec-przyjec.jpg"
+    image: "/images/book-pamiec-przyjec.jpg",
+    width: 632,
+    height: 631
   },
   {
     title: "Klub snów",
     year: "2019",
     details: "opowiadania, Wydawnictwo Cyranka, nominowane do Nagrody Literackiej Gdynia 2020",
-    image: "/images/book-klub-snow.jpg"
+    image: "/images/book-klub-snow.jpg",
+    width: 768,
+    height: 1200
   },
   {
     title: "Tysiąc saun",
     year: "2020",
     details: "wiersze nominowane do Nagrody KOS 2021",
-    image: "/images/book-tysiac-saun.jpg"
+    image: "/images/book-tysiac-saun.jpg",
+    width: 710,
+    height: 1005
   },
   {
     title: "Mam na imię nie mam",
     year: "2021",
     details: "opowiadania, Wydawnictwo Cyranka",
-    image: "/images/book-mam-na-imie-nie-mam.jpg"
+    image: "/images/book-mam-na-imie-nie-mam.jpg",
+    width: 770,
+    height: 1200
   },
   {
     title: "Synu, jesteś kotem",
     year: "2023",
     details: "Wydawnictwo Cyranka",
-    image: "/images/book-synu-jestes-kotem.jpg"
+    image: "/images/book-synu-jestes-kotem.jpg",
+    width: 350,
+    height: 573,
+    mediaPath: "/media/#synu-jestes-kotem"
   },
   {
     title: "śń",
     year: "2023",
     details: "",
-    image: "/images/book-sn.jpg"
+    image: "/images/book-sn.jpg",
+    width: 1200,
+    height: 797
   },
   {
     title: "Gdzie zgłosić dzikie zwierzę",
     year: "2024",
     details: "Wydawnictwo Cyranka",
-    image: "/images/book-gdzie-zglosic-dzikie-zwierze.jpg"
+    image: "/images/book-gdzie-zglosic-dzikie-zwierze.jpg",
+    width: 350,
+    height: 574
   },
   {
     title: "Zwiezda",
     year: "2025",
     details: "Wydawnictwo Literackie",
-    image: "/images/book-zwiezda.jpg"
+    image: "/images/book-zwiezda.jpg",
+    width: 840,
+    height: 1200,
+    mediaPath: "/media/#zwiezda"
   },
   {
     title: "Ćwierćświatek",
@@ -65,7 +91,7 @@ export const articles = [
   { title: "Wiek, który się ukrywa. Jak to jest być czterdziestolatką", publication: "gazeta.pl", url: "https://weekend.gazeta.pl/weekend/7,177344,21509343,wiek-ktory-sie-ukrywa-jak-to-jest-byc-czterdziestolatka.html" },
   { title: "Czy warto przyjaźnić się z szefową?", publication: "gazeta.pl", url: "https://weekend.gazeta.pl/weekend/7,177341,20987841,czy-warto-przyjaznic-sie-z-szefowa-zespol-odbieral-mnie-jako.html" },
   { title: "Miłość w otwartej Europie", publication: "gazeta.pl", url: "https://weekend.gazeta.pl/weekend/7,177344,22301868,milosc-w-otwartej-europie-jak-tak-skaczemy-miedzy-krajami.html" },
-  { title: "Seria artykułów i wywiadów na portalu parentingowym Fundacji Kosmos dla Dziewczynek", publication: "Kosmos dla Dziewczynek", url: "https://kosmosdladziewczynek.pl/?s=Katarzyna+michalczak" }
+  { title: "Seria artykułów i wywiadów na portalu parentingowym Fundacji Kosmos dla Dziewczynek", publication: "Kosmos dla Dziewczynek", url: "https://kosmosdladziewczynek.pl/autorzy/katarzyna-michalczak" }
 ];
 
 export const childrenCopy = [
@@ -94,20 +120,20 @@ export const mediaGroups = [
     title: "Synu, jesteś kotem",
     items: [
       { title: "Katarzyna Michalczak: Nie dostrzegłam spektrum Radka. Byłam bardzo rozczarowana macierzyństwem", source: "Wysokie Obcasy", kind: "wywiad", url: "https://www.wysokieobcasy.pl/wysokie-obcasy/7,173910,29367241,katarzyna-michalczak-mama-doroslego-syna-ze-spektrum.html" },
-      { title: "Katarzyna Michalczak, autorka książki »Synu, jesteś kotem«, o swojej relacji z synem w spektrum autyzmu", description: "rozmowa o książce, macierzyństwie i relacji z synem Radkiem.", source: "Vogue.pl · 12.01.2023", kind: "wywiad", url: "https://vogue.pl/a/katarzyna-michalczak-autorka-ksiazki-synu-jestes-kotem-o-swojej-relacji-z-synem-w-spektrum-autyzmu" },
+      { title: "Katarzyna Michalczak, autorka książki »Synu, jesteś kotem«, o swojej relacji z synem w spektrum autyzmu", description: "rozmowa o książce, macierzyństwie i relacji z synem Radkiem.", source: "Vogue.pl · 12.01.2023", kind: "wywiad", url: "https://www.vogue.pl/a/katarzyna-michalczak-autorka-ksiazki-synu-jestes-kotem-o-swojej-re-lacji-z-synem-w-spektrum-autyzmu" },
       { title: "Miłość do dziecka w spektrum autyzmu trzeba wygrzebywać pazurami", description: "rozmowa z autorką książki „Synu, jesteś kotem”, przeprowadzona przy okazji Światowego Dnia Świadomości Autyzmu.", source: "Zwierciadło.pl", kind: "wywiad", url: "https://zwierciadlo.pl/spotkania/532742" },
       { title: "BABA BOOK: Katarzyna Michalczak »Synu, jesteś kotem« [LIVE]", description: "Rozmowa na żywo z autorką o książce.", source: "YouTube · cykl „Baba od polskiego”, sierpień 2023", kind: "wideo", url: "https://youtube.com/watch?v=o2GlN9LEMxo" },
       { title: "Synu, jesteś kotem – Katarzyna Michalczak", description: "Materiał wideo poświęcony książce", source: "YouTube · Sztuka Wrażliwości, grudzień 2023", kind: "wideo", url: "https://youtube.com/watch?v=E8GUbel1IWA" },
       { title: "Książki. Magazyn do słuchania", description: "Rozmowa Michała Nogasia o „Synu, jesteś kotem”.", source: "YouTube · luty 2023", kind: "wideo", url: "https://youtube.com/watch?v=D_Faql4taV4" },
-      { title: "Recenzja Justyny Sobolewskiej z „Synu, jesteś kotem”", source: "Polityka.pl · 24.01.2023", kind: "recenzja" },
-      { title: "Recenzja książki „Synu, jesteś kotem”", source: "Pani Kultura · panikultura.pl · sierpień 2023", kind: "recenzja" }
+      { title: "Recenzja Justyny Sobolewskiej z „Synu, jesteś kotem”", source: "Polityka.pl · 24.01.2023", kind: "recenzja", url: "https://www.polityka.pl/tygodnikpolityka/kultura/ksiazki/2198438,1,recenzja-ksiazki-katarzyna-michalczak-synu-jestes-kotem.read" },
+      { title: "Recenzja książki „Synu, jesteś kotem”", source: "Pani Kultura · panikultura.pl · sierpień 2023", kind: "recenzja", url: "https://panikultura.pl/synu-jestes-kotem-katarzyna-michalczak/" }
     ]
   }
 ];
 
 export const portraits = [
-  { src: "/images/portrait-tomasz-nalewajk-1.jpg", alt: "Katarzyna Klau Michalczak podczas gotowania w lesie", credit: "fot. Tomasz Nalewajk" },
-  { src: "/images/portrait-justyna-lazizi.jpg", alt: "Roześmiana Katarzyna Klau Michalczak", credit: "fot. Justyna Lazizi" },
-  { src: "/images/portrait-tomasz-nalewajk-2.jpg", alt: "Katarzyna Klau Michalczak odpoczywająca na plaży", credit: "fot. Tomasz Nalewajk" },
-  { src: "/images/portrait-archiwum-prywatne.jpg", alt: "Czarno-biały portret Katarzyny Klau Michalczak", credit: "archiwum prywatne" }
+  { src: "/images/portrait-tomasz-nalewajk-1.jpg", alt: "Katarzyna Klau Michalczak podczas gotowania w lesie", credit: "fot. Tomasz Nalewajk", width: 452, height: 640 },
+  { src: "/images/portrait-justyna-lazizi.jpg", alt: "Roześmiana Katarzyna Klau Michalczak", credit: "fot. Justyna Lazizi", width: 1536, height: 2048 },
+  { src: "/images/portrait-tomasz-nalewajk-2.jpg", alt: "Katarzyna Klau Michalczak odpoczywająca na plaży", credit: "fot. Tomasz Nalewajk", width: 480, height: 640 },
+  { src: "/images/portrait-archiwum-prywatne.jpg", alt: "Czarno-biały portret Katarzyny Klau Michalczak", credit: "archiwum prywatne", width: 1536, height: 2048 }
 ];

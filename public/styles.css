@@ -83,6 +83,8 @@ button { font: inherit; }
   padding-inline: var(--pad);
 }
 
+main [id] { scroll-margin-top: 2rem; }
+
 .site-header {
   width: 100%;
   min-height: 6.25rem;
@@ -342,15 +344,108 @@ button { font: inherit; }
 .about-photo::before { content: ""; position: absolute; inset: -1rem 1rem 1rem -1rem; z-index: -1; border: 1px solid var(--ink); }
 .pullquote { margin: 3rem 0 0; align-self: end; color: var(--red); font-family: var(--serif); font-size: clamp(2.1rem, 4.3vw, 4.7rem); font-style: italic; line-height: 1.02; letter-spacing: -.045em; }
 
-.portrait-strip {
-  display: grid;
-  grid-template-columns: .72fr 1.28fr;
-  align-items: start;
-  gap: clamp(2rem, 8vw, 9rem);
-  padding-bottom: clamp(7rem, 13vw, 13rem);
+.awards-stage {
+  position: relative;
+  overflow: hidden;
+  color: var(--paper);
+  background: var(--red);
 }
-.portrait-a { aspect-ratio: .73; transform: translateY(10%) rotate(2deg); }
-.portrait-b { aspect-ratio: 1.25; }
+.awards-stage::before {
+  content: "2013 — 2021";
+  position: absolute;
+  left: -.03em;
+  bottom: -.2em;
+  color: rgba(242,237,228,.065);
+  font-family: var(--serif);
+  font-size: clamp(6rem, 18vw, 18rem);
+  line-height: 1;
+  white-space: nowrap;
+}
+.awards-inner {
+  min-height: 58rem;
+  position: relative;
+  display: grid;
+  grid-template-columns: .75fr .7fr 1.15fr;
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: center;
+  padding-top: clamp(5rem, 9vw, 9rem);
+  padding-bottom: clamp(5rem, 9vw, 9rem);
+}
+.awards-heading { align-self: start; }
+.awards-heading h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(3rem, 5.8vw, 6.3rem);
+  font-weight: 400;
+  line-height: .87;
+  letter-spacing: -.055em;
+}
+.awards-heading > span { display: block; margin-top: 2rem; color: var(--yellow); font-size: 3rem; }
+.awards-photo {
+  align-self: center;
+  aspect-ratio: .72;
+  transform: rotate(-2.4deg);
+  box-shadow: 1rem 1rem 0 var(--yellow);
+}
+.awards-photo img { object-position: 58% center; filter: saturate(.82) contrast(1.05); }
+.awards-photo figcaption { color: var(--paper); }
+.awards-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(242,237,228,.55); }
+.award-item {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr;
+  gap: 1rem;
+  padding: 1.35rem 0;
+  border-bottom: 1px solid rgba(242,237,228,.55);
+}
+.award-item time { color: var(--yellow); font-size: .78rem; font-weight: 800; letter-spacing: .12em; }
+.award-item p { margin: 0; font-family: var(--serif); font-size: clamp(1.05rem, 1.55vw, 1.42rem); line-height: 1.3; }
+
+.photo-interlude {
+  min-height: min(76rem, 88vw);
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  padding-top: clamp(6rem, 11vw, 11rem);
+  padding-bottom: clamp(6rem, 11vw, 11rem);
+}
+.interlude-photo { grid-column: 2 / 11; aspect-ratio: 1.42; overflow: hidden; }
+.interlude-photo img { object-position: 50% 42%; filter: saturate(.7) contrast(1.04); }
+.interlude-photo figcaption {
+  position: absolute;
+  right: .75rem;
+  bottom: .75rem;
+  margin: 0;
+  padding: .28rem .48rem;
+  color: var(--paper);
+  background: rgba(24,23,21,.78);
+}
+.interlude-type {
+  grid-column: 1 / 5;
+  z-index: 2;
+  margin: 0;
+  color: var(--blue);
+  font-size: clamp(1.2rem, 3vw, 3.2rem);
+  font-weight: 800;
+  line-height: .94;
+  letter-spacing: -.045em;
+  text-transform: uppercase;
+  transform: rotate(-4deg);
+}
+.interlude-quote {
+  grid-column: 7 / 13;
+  z-index: 2;
+  margin: -5rem 0 0;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  color: var(--paper);
+  background: var(--blue);
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4.7vw, 5rem);
+  font-style: italic;
+  line-height: .96;
+  letter-spacing: -.045em;
+  transform: rotate(1.5deg);
+}
 
 .selected-books { padding-block: clamp(5rem, 9vw, 9rem); background: var(--blue); color: var(--paper); }
 .section-heading { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 1rem; margin-bottom: clamp(3rem, 6vw, 6rem); }
@@ -359,7 +454,11 @@ button { font: inherit; }
 .section-heading .text-link { margin: 0; }
 .book-ribbon { display: grid; grid-template-columns: repeat(4, 1fr); align-items: end; gap: clamp(1rem, 3vw, 3.5rem); }
 .mini-book:nth-child(even) { transform: translateY(3rem); }
-.mini-book img { width: 100%; aspect-ratio: .71; object-fit: cover; box-shadow: .9rem .9rem 0 rgba(24,23,21,.3); transition: transform .35s ease; }
+.mini-book-art { height: clamp(15rem, 28vw, 27rem); display: grid; place-items: center; padding: clamp(.8rem, 2vw, 1.7rem); background: rgba(242,237,228,.08); }
+.mini-book:nth-child(2) .mini-book-art { border-radius: 50% 50% 0 0; background: rgba(232,174,53,.22); }
+.mini-book:nth-child(3) .mini-book-art { background: rgba(218,84,120,.2); transform: rotate(-1.5deg); }
+.mini-book:nth-child(4) .mini-book-art { border-radius: 50%; background: rgba(242,237,228,.12); }
+.mini-book img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(.9rem .9rem 0 rgba(24,23,21,.3)); transition: transform .35s ease; }
 .mini-book:hover img { transform: translateY(-.65rem) rotate(-1deg); }
 .mini-book p { display: flex; gap: .7rem; margin: 1.15rem 0 0; font-family: var(--serif); font-size: clamp(1rem, 1.5vw, 1.35rem); }
 .mini-book p span { font-family: var(--sans); font-size: .7rem; font-weight: 800; letter-spacing: .08em; }
@@ -380,25 +479,37 @@ button { font: inherit; }
 
 .book-list { padding-top: clamp(7rem, 12vw, 12rem); padding-bottom: clamp(6rem, 11vw, 11rem); }
 .book-card {
+  --book-accent: var(--red);
   display: grid;
   grid-template-columns: 4rem minmax(12rem, .6fr) 1fr;
   gap: clamp(1.5rem, 5vw, 6rem);
   align-items: center;
+  position: relative;
   padding-block: clamp(3rem, 6vw, 6rem);
   border-bottom: 1px solid var(--line);
+  isolation: isolate;
 }
+.book-theme-2 { --book-accent: var(--blue); }
+.book-theme-3 { --book-accent: var(--yellow); }
+.book-theme-4 { --book-accent: var(--pink); }
+.book-theme-5 { --book-accent: var(--green); }
 .book-card:first-child { border-top: 1px solid var(--line); }
 .book-card:nth-child(even) .book-cover { transform: rotate(1.7deg); }
 .book-card:nth-child(odd) .book-cover { transform: rotate(-1.3deg); }
 .book-number { align-self: start; padding-top: 1rem; font-size: .76rem; font-weight: 800; letter-spacing: .12em; }
-.book-cover { width: min(100%, 22rem); justify-self: center; box-shadow: 1.1rem 1.1rem 0 var(--paper-deep); transition: transform .3s ease; }
+.book-cover { width: min(100%, 24rem); min-height: 25rem; justify-self: center; position: relative; display: grid; place-items: center; padding: clamp(1rem, 2vw, 2rem); transition: transform .3s ease; }
+.book-cover::before { content: ""; width: 92%; aspect-ratio: 1; position: absolute; z-index: -1; border-radius: 50%; background: var(--book-accent); opacity: .88; }
 .book-card:hover .book-cover { transform: translateY(-.6rem) rotate(0); }
-.book-cover img { width: 100%; aspect-ratio: .71; object-fit: cover; }
+.book-cover img { width: auto; max-width: 100%; max-height: 32rem; height: auto; filter: drop-shadow(1rem 1rem 0 rgba(24,23,21,.2)); }
 .book-info h2 { margin: 0 0 1rem; font-family: var(--serif); font-size: clamp(2.6rem, 6vw, 6.2rem); font-weight: 400; line-height: .88; letter-spacing: -.06em; }
 .book-info { min-width: 0; }
 .book-info h2 { overflow-wrap: anywhere; hyphens: auto; }
 .book-info > p:not(.eyebrow, .book-year) { max-width: 35rem; font-family: var(--serif); font-size: clamp(1.05rem, 1.7vw, 1.35rem); }
+.book-media-link { width: fit-content; display: inline-flex; align-items: center; gap: .55rem; margin-top: 1.25rem; color: var(--book-accent); font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+.book-media-link svg { width: 1.2rem; fill: none; stroke: currentColor; stroke-width: 1.8; transition: transform .25s ease; }
+.book-media-link:hover svg { transform: translateX(.35rem); }
 .book-cover-placeholder { aspect-ratio: .71; display: grid; place-content: center; gap: 1rem; text-align: center; color: var(--paper); background: var(--red); border-radius: 50% 50% 0 0; }
+.book-cover-placeholder::before { display: none; }
 .book-cover-placeholder span { font-size: 4rem; }
 .book-cover-placeholder i { font-family: var(--serif); font-size: 1.6rem; }
 .book-planned { color: var(--red); }
@@ -512,9 +623,14 @@ button { font: inherit; }
   .about { grid-template-columns: 1fr; }
   .about-copy p { font-size: 1.22rem; }
   .pullquote { margin-top: 0; }
-  .portrait-strip { grid-template-columns: 1fr; }
-  .portrait-a { width: 75%; transform: rotate(2deg); }
-  .portrait-b { aspect-ratio: .9; }
+  .awards-inner { min-height: auto; grid-template-columns: 1fr; }
+  .awards-heading { max-width: 28rem; }
+  .awards-photo { width: 68%; justify-self: end; }
+  .awards-list { position: relative; z-index: 1; }
+  .photo-interlude { min-height: 42rem; display: block; }
+  .interlude-photo { aspect-ratio: .88; margin-inline: 1.5rem; }
+  .interlude-type { position: absolute; left: 1rem; top: 12%; }
+  .interlude-quote { width: calc(100% - 2rem); position: absolute; right: 1rem; bottom: 13%; margin: 0; }
   .section-heading { grid-template-columns: 1fr; }
   .section-heading .text-link { margin-top: .7rem; }
   .book-ribbon { gap: 1rem; row-gap: 4rem; }
@@ -528,7 +644,7 @@ button { font: inherit; }
   .intro-star { top: 25%; }
   .page-intro h1 { font-size: clamp(4rem, 22vw, 7rem); overflow-wrap: anywhere; }
   .book-card { grid-template-columns: 2.25rem 1fr; align-items: start; }
-  .book-cover { grid-column: 2; width: min(100%, 18rem); justify-self: start; }
+  .book-cover { grid-column: 2; width: min(100%, 20rem); min-height: 20rem; justify-self: start; }
   .book-info { grid-column: 2; }
   .book-info h2 { font-size: clamp(2.75rem, 14vw, 5rem); }
   .article-row { min-height: 9rem; grid-template-columns: 2.25rem 1fr 1.5rem; gap: .65rem; }

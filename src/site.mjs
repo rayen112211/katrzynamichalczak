@@ -1,5 +1,6 @@
 import {
   articles,
+  awards,
   biography,
   books,
   childrenCopy,
@@ -56,12 +57,19 @@ const esc = (value) => String(value)
   .replaceAll(">", "&gt;")
   .replaceAll('"', "&quot;");
 
+const toId = (value) => String(value)
+  .normalize("NFD")
+  .replace(/[\u0300-\u036f]/g, "")
+  .toLowerCase()
+  .replace(/[^a-z0-9]+/g, "-")
+  .replace(/(^-|-$)/g, "");
+
 const arrow = `<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg>`;
 
 function imageFigure(portrait, className = "") {
   const priority = className.includes("hero-photo") ? `fetchpriority="high"` : `loading="lazy"`;
   return `<figure class="photo ${className}">
-    <img src="${portrait.src}" alt="${esc(portrait.alt)}" ${priority} decoding="async">
+    <img src="${portrait.src}" alt="${esc(portrait.alt)}" width="${portrait.width}" height="${portrait.height}" ${priority} decoding="async">
     <figcaption>${esc(portrait.credit)}</figcaption>
   </figure>`;
 }
@@ -165,6 +173,7 @@ function homePage(siteUrl) {
     jobTitle: ["poetka", "pisarka"],
     memberOf: { "@type": "Organization", name: "Unia Literacka" },
     alumniOf: { "@type": "Organization", name: "ISNS UW" },
+    award: awards.map((award) => `${award.year}: ${award.text}`),
     image: siteUrl ? `${siteUrl}/images/portrait-archiwum-prywatne.jpg` : undefined
   };
   const content = `<section class="hero content-shell">
@@ -195,14 +204,24 @@ function homePage(siteUrl) {
       ${imageFigure(portraits[0], "about-photo reveal")}
       <blockquote class="pullquote reveal">„A potem napisałam kilka innych książek, gdyż z roku na rok staje się to dla mnie coraz ważniejsze.”</blockquote>
     </section>
-    <section class="portrait-strip content-shell" aria-label="Portrety Katarzyny Klau Michalczak">
-      ${imageFigure(portraits[1], "portrait-a reveal")}
-      ${imageFigure(portraits[2], "portrait-b reveal")}
+    <section class="awards-stage" id="nagrody" aria-labelledby="awards-title">
+      <div class="awards-inner content-shell">
+        <div class="awards-heading reveal"><p class="eyebrow">Nagrody i nominacje</p><h2 id="awards-title">Pięć ważnych<br>momentów</h2><span aria-hidden="true">✦</span></div>
+        ${imageFigure(portraits[1], "awards-photo reveal")}
+        <ol class="awards-list">
+          ${awards.map((award) => `<li class="award-item reveal"><time>${award.year}</time><p>${esc(award.text)}</p></li>`).join("")}
+        </ol>
+      </div>
+    </section>
+    <section class="photo-interlude content-shell" id="portret" aria-label="Portret Katarzyny Klau Michalczak">
+      ${imageFigure(portraits[2], "interlude-photo reveal")}
+      <p class="interlude-type reveal" aria-hidden="true">poezja<br>proza<br>opowiadania</p>
+      <blockquote class="interlude-quote reveal">„z roku na rok staje się to dla mnie coraz ważniejsze”</blockquote>
     </section>
     <section class="selected-books" aria-labelledby="selected-title">
       <div class="content-shell section-heading reveal"><p class="eyebrow">Książki</p><h2 id="selected-title">Wybrane tytuły</h2><a class="text-link" href="/ksiazki/">Wszystkie książki ${arrow}</a></div>
       <div class="book-ribbon content-shell">
-        ${featured.map((book) => `<article class="mini-book reveal"><img src="${book.image}" alt="Okładka książki „${esc(book.title)}”" loading="lazy" decoding="async"><p><span>${book.year}</span>${esc(book.title)}</p></article>`).join("")}
+        ${featured.map((book) => `<article class="mini-book reveal"><div class="mini-book-art"><img src="${book.image}" alt="Okładka książki „${esc(book.title)}”" width="${book.width}" height="${book.height}" loading="lazy" decoding="async"></div><p><span>${book.year}</span>${esc(book.title)}</p></article>`).join("")}
       </div>
     </section>
     ${routeCards()}`;
@@ -219,10 +238,10 @@ function booksPage(siteUrl) {
       item: { "@type": "Book", name: book.title, datePublished: book.year, author: { "@type": "Person", name: "Katarzyna Klau Michalczak" } }
     }))
   };
-  const cards = books.map((book, index) => `<article class="book-card reveal ${book.planned ? "book-planned" : ""}">
+  const cards = books.map((book, index) => `<article class="book-card book-theme-${(index % 5) + 1} reveal ${book.planned ? "book-planned" : ""}" id="${toId(book.title)}">
     <div class="book-number">${String(index + 1).padStart(2, "0")}</div>
-    ${book.image ? `<div class="book-cover"><img src="${book.image}" alt="Okładka książki „${esc(book.title)}”" ${index < 2 ? `fetchpriority="high"` : `loading="lazy"`} decoding="async"></div>` : `<div class="book-cover book-cover-placeholder" aria-hidden="true"><span>✦</span><i>W planach</i></div>`}
-    <div class="book-info"><p class="eyebrow">${book.planned ? "W planach" : book.year}</p><h2>${esc(book.title)}</h2><p>${esc(book.details)}</p>${book.planned ? `<p class="book-year">${book.year}</p>` : ""}</div>
+    ${book.image ? `<div class="book-cover"><img src="${book.image}" alt="Okładka książki „${esc(book.title)}”" width="${book.width}" height="${book.height}" ${index < 2 ? `fetchpriority="high"` : `loading="lazy"`} decoding="async"></div>` : `<div class="book-cover book-cover-placeholder" aria-hidden="true"><span>✦</span><i>W planach</i></div>`}
+    <div class="book-info"><p class="eyebrow">${book.planned ? "W planach" : book.year}</p><h2>${esc(book.title)}</h2>${book.details ? `<p>${esc(book.details)}</p>` : ""}${book.mediaPath ? `<a class="book-media-link" href="${book.mediaPath}">Media o książce ${arrow}</a>` : ""}${book.planned ? `<p class="book-year">${book.year}</p>` : ""}</div>
   </article>`).join("");
   return layout("books", `${pageIntro("Bibliografia", "Książki", "Poezja · opowiadania · proza")}${marquee()}<section class="book-list content-shell">${cards}</section>`, schema, siteUrl);
 }
@@ -271,7 +290,9 @@ function workshopsPage(siteUrl) {
 }
 
 function mediaPage(siteUrl) {
-  const groups = mediaGroups.map((group, groupIndex) => `<section class="media-group content-shell" aria-labelledby="media-${groupIndex}">
+  const groups = mediaGroups.map((group, groupIndex) => {
+    const groupId = toId(group.title);
+    return `<section class="media-group content-shell" id="${groupId}" aria-labelledby="media-${groupIndex}">
     <div class="media-group-title reveal"><p class="eyebrow">${String(groupIndex + 1).padStart(2, "0")}</p><h2 id="media-${groupIndex}">${esc(group.title)}</h2></div>
     <div class="media-items">
       ${group.items.map((item) => {
@@ -279,7 +300,8 @@ function mediaPage(siteUrl) {
         return item.url ? `<a class="media-item reveal" href="${item.url}" target="_blank" rel="noopener noreferrer">${body}<span class="sr-only">Otwórz w nowej karcie</span></a>` : `<article class="media-item media-item-static reveal">${body}</article>`;
       }).join("")}
     </div>
-  </section>`).join("");
+  </section>`;
+  }).join("");
   return layout("media", `${pageIntro("Rozmowy · recenzje · wideo", "Media o moich książkach")}${groups}`, null, siteUrl);
 }
 
