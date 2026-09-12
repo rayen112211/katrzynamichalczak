@@ -1,0 +1,16 @@
+{
+  "name": "Katarzyna Klau Michalczak",
+  "short_name": "KKM",
+  "lang": "pl",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f2ede4",
+  "theme_color": "#922e35",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
