@@ -1,7 +1,7 @@
 import { cp, mkdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { navItems, renderPages } from "../src/site.mjs";
+import { allRoutes, renderPages } from "../src/site.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const output = path.join(root, "dist");
@@ -24,7 +24,7 @@ const robots = siteUrl
 await writeFile(path.join(output, "robots.txt"), robots, "utf8");
 
 if (siteUrl) {
-  const urls = navItems.map(([route]) => `  <url><loc>${siteUrl}${route}</loc></url>`).join("\n");
+  const urls = allRoutes.map((route) => `  <url><loc>${siteUrl}${route}</loc></url>`).join("\n");
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
   await writeFile(path.join(output, "sitemap.xml"), sitemap, "utf8");
 }

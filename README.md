@@ -1,6 +1,6 @@
 # Katarzyna Klau Michalczak
 
-Oficjalna strona autorska Katarzyny Klau Michalczak. Szybka, statyczna witryna w języku polskim, zbudowana bez zależności uruchomieniowych.
+Oficjalna, dwujęzyczna strona autorska Katarzyny Klau Michalczak. Szybka, statyczna witryna z polską wersją główną i pełną wersją angielską, zbudowana bez zależności uruchomieniowych.
 
 ## Uruchomienie
 
@@ -21,4 +21,4 @@ Projekt jest gotowy do wdrożenia w Vercel. Ustaw zmienną środowiskową `SITE_
 
 ## Treści i zdjęcia
 
-Treści pochodzą z dokumentu przekazanego przez Katarzynę. Zdjęcia i okładki pochodzą z udostępnionego folderu; podpisy fotografii zachowują informacje z nazw plików. Nie uzupełniaj brakujących danych o książkach, mediach ani kontaktach bez potwierdzonego źródła.
+Treści pochodzą z dokumentu i korespondencji przekazanych przez Katarzynę. Zdjęcia i okładki pochodzą z udostępnionego folderu, a zbiorcze autorstwo fotografii znajduje się w stopce. Zapowiedziany film nie jest wyświetlany do czasu dostarczenia gotowego materiału. Nie uzupełniaj danych o książkach, mediach ani kontaktach bez potwierdzonego źródła.

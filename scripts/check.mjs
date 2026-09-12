@@ -20,10 +20,13 @@ async function walk(directory) {
 for (const file of (await walk(output)).filter((item) => item.endsWith(".html"))) {
   const html = await readFile(file, "utf8");
   const relative = path.relative(output, file);
-  if (!/<html lang="pl">/.test(html)) errors.push(`${relative}: missing Polish language declaration`);
+  const expectedLanguage = relative.startsWith(`en${path.sep}`) ? "en" : "pl";
+  if (!new RegExp(`<html lang="${expectedLanguage}">`).test(html)) errors.push(`${relative}: incorrect language declaration`);
   if (!/<h1[ >]/.test(html)) errors.push(`${relative}: missing h1`);
   if (!/<meta name="description" content="[^"]+">/.test(html)) errors.push(`${relative}: missing description`);
   if (!/class="skip-link"/.test(html)) errors.push(`${relative}: missing skip link`);
+  if (!/class="language-switch"/.test(html)) errors.push(`${relative}: missing language switch`);
+  if (/Wkrótce|Krótki film|book-cover-placeholder/.test(html)) errors.push(`${relative}: contains unfinished placeholder content`);
   const assetMatches = [...html.matchAll(/(?:src|href)="(\/(?:images\/[^"?]+|styles\.css|main\.js|favicon\.svg|site\.webmanifest))"/g)];
   for (const [, asset] of assetMatches) {
     try { await access(path.join(output, asset.slice(1))); }

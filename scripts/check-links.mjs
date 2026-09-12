@@ -1,8 +1,8 @@
 import { articles, mediaGroups } from "../src/content.mjs";
 
 const links = [
-  ...articles.map(({ title, url }) => ({ title, url })),
-  ...mediaGroups.flatMap(({ items }) => items.filter(({ url }) => url).map(({ title, url }) => ({ title, url })))
+  ...articles.map(({ title, url }) => ({ title: title.pl, url })),
+  ...mediaGroups.flatMap(({ items }) => items.filter(({ url }) => url).map(({ title, url }) => ({ title: title.pl, url })))
 ];
 
 async function checkLink({ title, url }) {
