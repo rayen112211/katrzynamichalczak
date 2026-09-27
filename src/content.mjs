@@ -50,6 +50,7 @@ export const awards = [
 export const books = [
   {
     title: "Pamięć przyjęć",
+    category: "poetry",
     year: "2016",
     details: { pl: "tom poetycki · Dom Literatury w Łodzi", en: "poetry collection · Dom Literatury in Łódź" },
     image: "/images/book-pamiec-przyjec.jpg",
@@ -58,6 +59,7 @@ export const books = [
   },
   {
     title: "Klub snów",
+    category: "prose",
     year: "2019",
     details: { pl: "zbiór opowiadań · Wydawnictwo Cyranka", en: "short-story collection · Cyranka" },
     image: "/images/book-klub-snow.jpg",
@@ -66,6 +68,7 @@ export const books = [
   },
   {
     title: "Tysiąc saun",
+    category: "poetry",
     year: "2020",
     details: { pl: "tom poetycki · Wydawnictwo Literackie", en: "poetry collection · Wydawnictwo Literackie" },
     image: "/images/book-tysiac-saun.jpg",
@@ -74,6 +77,7 @@ export const books = [
   },
   {
     title: "Mam na imię nie mam",
+    category: "prose",
     year: "2021",
     details: { pl: "zbiór opowiadań · Wydawnictwo Cyranka", en: "short-story collection · Cyranka" },
     image: "/images/book-mam-na-imie-nie-mam.jpg",
@@ -82,6 +86,7 @@ export const books = [
   },
   {
     title: "Synu, jesteś kotem",
+    category: "autofiction",
     year: "2023",
     details: {
       pl: "auto-non-fiction napisane z udziałem syna · Wydawnictwo Cyranka",
@@ -94,6 +99,7 @@ export const books = [
   },
   {
     title: "śń",
+    category: "poetry",
     year: "2023",
     details: { pl: "tom poetycki · Wydawnictwo j", en: "poetry collection · Wydawnictwo j" },
     image: "/images/book-sn.jpg",
@@ -102,6 +108,7 @@ export const books = [
   },
   {
     title: "Gdzie zgłosić dzikie zwierzę",
+    category: "autofiction",
     year: "2024",
     details: { pl: "auto-non-fiction o ADHD · Wydawnictwo Cyranka", en: "autobiographical non-fiction about ADHD · Cyranka" },
     image: "/images/book-gdzie-zglosic-dzikie-zwierze.jpg",
@@ -110,6 +117,7 @@ export const books = [
   },
   {
     title: "Zwiezda",
+    category: "prose",
     year: "2025",
     details: { pl: "powieść · Wydawnictwo Literackie", en: "novel · Wydawnictwo Literackie" },
     image: "/images/book-zwiezda.jpg",
@@ -255,6 +263,7 @@ export const mediaGroups = [
 ];
 
 export const portraits = [
+  { src: "/images/portrait-katarzyna-new.jpg", alt: { pl: "Czarno-biały portret Katarzyny Klau Michalczak", en: "Black-and-white portrait of Katarzyna Klau Michalczak" }, width: 480, height: 640 },
   { src: "/images/portrait-tomasz-nalewajk-1.jpg", alt: { pl: "Katarzyna Klau Michalczak podczas gotowania w lesie", en: "Katarzyna Klau Michalczak cooking in a forest" }, width: 452, height: 640 },
   { src: "/images/portrait-justyna-lazizi.jpg", alt: { pl: "Roześmiana Katarzyna Klau Michalczak", en: "Katarzyna Klau Michalczak laughing" }, width: 1536, height: 2048 },
   { src: "/images/portrait-tomasz-nalewajk-2.jpg", alt: { pl: "Katarzyna Klau Michalczak odpoczywająca na plaży", en: "Katarzyna Klau Michalczak resting on a beach" }, width: 480, height: 640 },

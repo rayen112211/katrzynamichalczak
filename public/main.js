@@ -1,6 +1,22 @@
 const menuButton = document.querySelector(".menu-button");
 const navigation = document.querySelector(".site-nav");
 
+for (const link of document.querySelectorAll("[data-contact-email]")) {
+  const email = link.dataset.contactEmail.match(/.{2}/g).map((pair) => String.fromCharCode(Number.parseInt(pair, 16))).join("");
+  link.href = `mailto:${email}`;
+  if (link.classList.contains("contact-email")) link.textContent = email;
+}
+
+document.querySelector("[data-contact-form]")?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const email = document.querySelector("[data-contact-email]").dataset.contactEmail.match(/.{2}/g).map((pair) => String.fromCharCode(Number.parseInt(pair, 16))).join("");
+  const values = new FormData(form);
+  const message = [...values.entries()].map(([key, value]) => `${key}: ${value}`).join("\n");
+  const subject = document.documentElement.lang === "pl" ? "Zaproszenie do współpracy" : "Invitation to collaborate";
+  window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+});
+
 function closeMenu() {
   if (!menuButton || !navigation) return;
   menuButton.setAttribute("aria-expanded", "false");
