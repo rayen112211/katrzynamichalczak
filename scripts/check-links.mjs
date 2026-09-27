@@ -1,8 +1,10 @@
-import { articles, mediaGroups } from "../src/content.mjs";
+import { articles, bookCopy, guides, mediaGroups } from "../src/content.mjs";
 
 const links = [
   ...articles.map(({ title, url }) => ({ title: title.pl, url })),
-  ...mediaGroups.flatMap(({ items }) => items.filter(({ url }) => url).map(({ title, url }) => ({ title: title.pl, url })))
+  ...Object.entries(bookCopy).filter(([, details]) => details.publisher).map(([title, details]) => ({ title: `${title} — publisher`, url: details.publisher })),
+  ...guides.map((guide) => ({ title: guide.title, url: guide.url })),
+  ...mediaGroups.filter(({ title }) => title !== "Dobry Tytuł").flatMap(({ items }) => items.filter(({ url }) => url).map(({ title, url }) => ({ title: title.pl, url })))
 ];
 
 async function checkLink({ title, url }) {

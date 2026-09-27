@@ -13,9 +13,27 @@ document.querySelector("[data-contact-form]")?.addEventListener("submit", (event
   const email = document.querySelector("[data-contact-email]").dataset.contactEmail.match(/.{2}/g).map((pair) => String.fromCharCode(Number.parseInt(pair, 16))).join("");
   const values = new FormData(form);
   const message = [...values.entries()].map(([key, value]) => `${key}: ${value}`).join("\n");
-  const subject = document.documentElement.lang === "pl" ? "Zaproszenie do współpracy" : "Invitation to collaborate";
+  const subject = document.documentElement.lang === "pl" ? "Zaproszenie do współpracy" : document.documentElement.lang === "es" ? "Invitación a colaborar" : "Invitation to collaborate";
   window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
 });
+
+const quoteCards = [...document.querySelectorAll("[data-quote-card]")];
+const quoteCount = document.querySelector("[data-quote-count]");
+let activeQuote = 0;
+
+function showQuote(index) {
+  if (!quoteCards.length) return;
+  activeQuote = (index + quoteCards.length) % quoteCards.length;
+  quoteCards.forEach((card, cardIndex) => {
+    card.hidden = cardIndex !== activeQuote;
+    card.classList.toggle("is-active", cardIndex === activeQuote);
+  });
+  if (quoteCount) quoteCount.textContent = `${String(activeQuote + 1).padStart(2, "0")} / ${String(quoteCards.length).padStart(2, "0")}`;
+}
+
+document.querySelector("[data-quote-prev]")?.addEventListener("click", () => showQuote(activeQuote - 1));
+document.querySelector("[data-quote-next]")?.addEventListener("click", () => showQuote(activeQuote + 1));
+document.querySelector(".quote-controls")?.removeAttribute("hidden");
 
 function closeMenu() {
   if (!menuButton || !navigation) return;
