@@ -468,9 +468,10 @@ main [id] { scroll-margin-top: 2rem; }
 .mini-book:nth-child(4) .mini-book-art { border-radius: 50%; background: rgba(242,237,228,.12); }
 .mini-book img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(.9rem .9rem 0 rgba(24,23,21,.3)); transition: transform .35s ease; }
 .mini-book:hover img { transform: translateY(-.65rem) rotate(-1deg); }
-.mini-book p { display: flex; gap: .7rem; margin: 1.15rem 0 0; font-family: var(--serif); font-size: clamp(1rem, 1.5vw, 1.35rem); }
+.mini-book p { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: .4rem .7rem; margin: 1.15rem 0 0; font-family: var(--serif); font-size: clamp(1rem, 1.5vw, 1.35rem); }
+.mini-book p strong { grid-column: 1 / -1; min-width: 0; overflow-wrap: anywhere; }
 .mini-book p span { font-family: var(--sans); font-size: .7rem; font-weight: 800; letter-spacing: .08em; }
-.mini-book p .mini-book-genre { margin-left: auto; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.mini-book p .mini-book-genre { font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
 .mini-book p .mini-book-year { flex: 0 0 auto; }
 .mini-book { display: block; color: inherit; text-decoration: none; }
 .mini-book:focus-visible { outline-color: var(--yellow); }
@@ -703,7 +704,8 @@ main [id] { scroll-margin-top: 2rem; }
   .section-heading .text-link { margin-top: .7rem; }
   .book-ribbon { grid-auto-columns: minmax(14rem, 75%); gap: 1rem; row-gap: 0; }
   .mini-book img { box-shadow: .55rem .55rem 0 rgba(24,23,21,.3); }
-  .mini-book p { flex-direction: column; gap: .15rem; }
+  .mini-book p { gap: .25rem .5rem; }
+  .mini-book:nth-child(even) { transform: none; }
   .route-card { grid-template-columns: 2.25rem 1fr 1.5rem; min-height: 6rem; }
   .route-card strong { font-size: 1.5rem; }
   .page-intro { min-height: 30rem; }
@@ -749,7 +751,6 @@ main [id] { scroll-margin-top: 2rem; }
   .footer-contacts { grid-column: 1; justify-items: start; }
   .site-footer nav { justify-content: start; text-align: left; }
   .footer-role { grid-column: 1; }
-  .photo-credits { grid-column: 1; justify-self: start; text-align: left; }
   .footer-meta { grid-column: 1; }
   .footer-orbit { right: -5rem; }
 }

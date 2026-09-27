@@ -21,4 +21,4 @@ Projekt jest gotowy do wdrożenia w Vercel. Ustaw zmienną środowiskową `SITE_
 
 ## Treści i zdjęcia
 
-Treści pochodzą z dokumentu i korespondencji przekazanych przez Katarzynę. Zdjęcia i okładki pochodzą z udostępnionego folderu, a zbiorcze autorstwo fotografii znajduje się w stopce. Zapowiedziany film nie jest wyświetlany do czasu dostarczenia gotowego materiału. Nie uzupełniaj danych o książkach, mediach ani kontaktach bez potwierdzonego źródła.
+Treści, zdjęcia i okładki pochodzą z materiałów przekazanych przez Katarzynę. Zapowiedziany film nie jest wyświetlany do czasu dostarczenia gotowego materiału. Nie uzupełniaj danych o książkach, mediach ani kontaktach bez potwierdzonego źródła.
