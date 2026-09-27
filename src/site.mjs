@@ -107,7 +107,7 @@ const copy = {
     sendRequest: "Przygotuj wiadomość",
     emailSubject: "Zaproszenie do współpracy",
     originalTitle: "Tytuł oryginalny",
-    photography: "Zdjęcia: Tomasz Nalewajk, Justyna Lazizi oraz archiwum prywatne.",
+    photography: "Pozostałe zdjęcia: Justyna Lazizi i archiwum prywatne. Autorstwo portretu głównego do potwierdzenia.",
     instagram: "Instagram"
   },
   en: {
@@ -191,7 +191,7 @@ const copy = {
     sendRequest: "Prepare email",
     emailSubject: "Invitation to collaborate",
     originalTitle: "Original title",
-    photography: "Photography: Tomasz Nalewajk, Justyna Lazizi and private archive.",
+    photography: "Other photographs: Justyna Lazizi and private archive. Photographer credit for the main portrait is still to be confirmed.",
     instagram: "Instagram"
   }
 };
@@ -200,11 +200,12 @@ copy.es = {
   ...copy.en,
   locale: "es_ES", skip: "Saltar al contenido", homeLabel: "Katarzyna Klau Michalczak — inicio", mainNav: "Navegación principal", footerNav: "Navegación del pie", language: "Idioma del sitio", menu: "Menú", role: "Poeta · escritora", tagline: "Son las orillas las que dan forma al curso del río.", punchline: "Nunca renunciaré a los matorrales.", heroLink: "Sobre mí", homeCtaBooks: "Conoce los libros", homeCtaInvite: "Invítame", heroSide: "poesía / prosa / relatos", marquee: "poesía · prosa · relatos · talleres · escritura para niñas · ", aboutKicker: "Sobre mí", aboutTitle: "Desde la perspectiva de los matorrales.", quote: "Con cada nuevo libro la escritura se vuelve más importante para mí.", awardsKicker: "Premios y nominaciones", awardsTitle: "Cinco momentos<br>importantes", portraitLabel: "Retrato de Katarzyna Klau Michalczak", photoWords: "poesía<br>prosa<br>relatos", selectedKicker: "Libros", selectedTitle: "Algunos títulos", timelineTitle: "Libros, premios, residencias", timelineNote: "Fechas seleccionadas", invitationTitle: "Invitaciones", invitationText: "Encuentros · talleres de escritura · mesas redondas · charlas", allBooks: "Todos los libros", deeperKicker: "Explora", deeperTitle: "Descubre más", bibliography: "Bibliografía", booksTitle: "Libros", bookCategories: [{id:"poesia",key:"poetry",route:"poetry",label:"Poesía"},{id:"proza",key:"prose",route:"prose",label:"Prosa"},{id:"auto-non-fiction",key:"autofiction",route:"autofiction",label:"Auto-non-fiction"}], allBooksLabel: "Todos los libros", booksNote: "Poesía · relatos · prosa", mediaForBook: "En los medios", publisherLink: "Página de la editorial", upcoming: "En preparación", upcomingNote: "Próxima publicación", texts: "Textos", articlesTitle: "Artículos", articlesNote: "Przekrój · Gazeta.pl · Kosmos dla Dziewczynek", childrenKicker: "Para niñas", childrenTitle: "Nazwij TO", guides: "Guías", mainAuthor: "autora principal", writing: "Escritura", workshopsTitle: "Talleres", workshopsNote: "En grupo e individuales", places: "Lugares", scope: "Formas de trabajo", mediaKicker: "Entrevistas · reseñas · vídeo", mediaTitle: "Medios sobre mis libros", mediaNote: "Los materiales enlazados están publicados en polaco.", contactTitle: "Hablemos", contactInvite: "Colaboraciones", contactNote: "Encuentros · talleres · mesas redondas · charlas", contactIntro: "Escríbeme para encuentros literarios, talleres de escritura, mesas redondas y charlas.", homeBio: "Me interesa lo que para otras personas resulta menor o prescindible. Por eso escribo sobre asuntos importantes desde una perspectiva que no es la evidente: en poemas, relatos, novela y auto-non-fiction. He publicado ocho libros, finalistas entre otros del Premio Literario Gdynia y del Premio de Poesía KOS. Soy doctora en sociología y miembro de Unia Literacka, la unión de escritoras y escritores de Polonia.", bookQuote: "“Esta historia brilla con luz clara, aunque venga de la oscuridad.” — Marcin Zegadło, Księgozbiry", inviteIntro: "Amo a la gente y las conversaciones sobre literatura que se salen del camino principal. Viajo a bibliotecas, festivales, centros culturales y espacios que trabajan fuera de la corriente principal.", eventMeetings: "Conversaciones en torno a mis libros: poesía, prosa y auto-non-fiction. Puedo leer fragmentos y contar cómo nacieron. Siempre respondo con gusto a las preguntas del público, que a menudo se convierten en horas de conversación, durante el encuentro o después.", eventTalks: "Temas: TDAH en mujeres adultas, la maternidad frente a un hijo en el espectro autista, las relaciones fuera de la norma, feminismo, escribir sobre la propia vida.", whereBeen: "Festival Literario de Sopot 2024 · Wschowa · Gniezno · Milanówek · Galería Zachęta de Varsovia", practical: "Vivo en Milanówek, cerca de Varsovia, y paso la mitad fría del año en Andalucía. Puedo participar en encuentros en polaco, inglés y español.", replyTime: "Escríbeme contando qué buscas: tipo de evento, fecha y lugar. Respondo en un plazo de dos días.", journalismIntro: "En el periodismo también miro debajo del forro. He escrito para “Przekrój”, Gazeta.pl y “Kosmos dla Dziewczynek” sobre lo que suele quedarse al margen: el acoso en la hostelería, la vida con trastorno bipolar, las mujeres de cuarenta años y lo que llega después de la jubilación.", childIntro: "Entre 2021 y 2026 fui editora y autora de la revista “Kosmos dla Dziewczynek”. Escribí para lectoras de 6 a 14 años sobre asuntos de los que las personas adultas a menudo tienen miedo de hablar con las niñas.", childSeries: "En la serie “Nazwij TO” escribí, con un lenguaje acogedor y adaptado a su edad, sobre experiencias de las niñas: anorexia, depresión, el divorcio de sus madres y padres y distintas formas de abuso. Cada vez me importaba que la lectora viviera algo importante y entendiera algo, sin sentirse abrumada. Según me cuentan las niñas, el objetivo se cumplió: esos artículos, magníficamente ilustrados por Kasia Piątek, significan mucho para ellas.", name: "Nombre", institution: "Institución", eventType: "Tipo de evento", date: "Fecha", place: "Lugar", message: "Mensaje", sendRequest: "Preparar correo", emailSubject: "Invitación a colaborar", originalTitle: "Título original", photography: "Fotografías: Tomasz Nalewajk, Justyna Lazizi y archivo privado.", instagram: "Instagram"
 };
+copy.es.photography = "Otras fotografías: Justyna Lazizi y archivo privado. Falta confirmar el crédito del retrato principal.";
 
-const authorProfiles = [
+export const authorProfiles = [
   "https://www.instagram.com/katarzyna.klau.michalczak/",
   "https://www.wydawnictwoliterackie.pl/autor/1305/katarzyna-michalczak",
-  "https://wydawnictwocyranka.pl/autor/katarzyna-michalczak/"
+  "https://wydawnictwocyranka.pl/pl/producer/Katarzyna-Michalczak/15"
 ];
 
 const pageData = {
@@ -353,8 +354,10 @@ function footer(locale) {
   return `<footer class="site-footer">
     <div class="footer-orbit" aria-hidden="true"><span>śń</span></div>
     <p class="footer-name">Katarzyna<br>Klau Michalczak</p>
+    <p class="footer-role">${strings.role}</p>
     <nav aria-label="${strings.footerNav}">${routeDefinitions.filter((route) => !route.hidden && route.key !== "workshops").map((route) => `<a href="${route[locale].path}">${route[locale].label}</a>`).join("")}</nav>
     <div class="footer-contacts"><a class="footer-email" data-contact-email="6b617369612e6d696368616c637a616b40676d61696c2e636f6d" href="${routeFor("contact", locale).path}">${locale === "pl" ? "Napisz" : locale === "en" ? "Email" : "Correo"}</a><a href="https://www.instagram.com/katarzyna.klau.michalczak/" rel="me">${strings.instagram}</a></div>
+    <p class="footer-photography">${strings.photography}</p>
     <p class="footer-meta">© ${new Date().getFullYear()} Katarzyna Klau Michalczak</p>
   </footer>
   <script src="/main.js" defer></script>
@@ -557,6 +560,9 @@ function workshopsPage(locale, siteUrl) {
 
 function mediaPage(locale, siteUrl) {
   const strings = copy[locale];
+  const unassigned = mediaGroups.find((group) => group.title === "Dobry Tytuł");
+  const otherTitle = locale === "pl" ? "Wystąpienia" : locale === "en" ? "Appearances" : "Participaciones";
+  const otherAppearances = unassigned ? `<section class="media-group content-shell" id="wystapienia" aria-labelledby="media-${locale}-appearances"><div class="media-group-title reveal"><p class="eyebrow">${String(mediaGroups.filter((group) => group.title !== "Dobry Tytuł").length + 1).padStart(2, "0")}</p><h2 id="media-${locale}-appearances">${otherTitle}</h2></div><div class="media-items">${unassigned.items.map((item) => `<a class="media-item reveal" href="${item.url}" target="_blank" rel="noopener noreferrer"><span class="media-kind">${esc(item.kind[locale] || item.kind.pl)}</span><div><p class="media-source">${esc(item.source)}</p><h3${locale === "es" ? ` lang="pl"` : ""}>${esc(locale === "es" ? item.title.pl : item.title[locale] || item.title.pl)}</h3>${locale === "en" ? `<small class="original-title">${strings.originalTitle}: ${esc(item.title.pl)}</small>` : ""}</div>${arrow}<span class="sr-only">${strings.openNew}</span></a>`).join("")}</div></section>` : "";
   const groups = mediaGroups.filter((group) => group.title !== "Dobry Tytuł").map((group, groupIndex) => {
     const groupId = toId(group.title);
     const reviews = (bookCopy[group.title]?.quotes || []).map((quote) => `<blockquote class="media-quote"${quote.author === "Joanna Mueller" || locale !== "pl" ? ` lang="pl"` : ""}>${esc(quote.text[locale])}<cite>— ${esc(quote.author)}${quote.source ? ` · ${esc(quote.source)}` : ""}</cite></blockquote>`).join("");
@@ -578,9 +584,14 @@ function mediaPage(locale, siteUrl) {
     : locale === "en"
       ? "Katarzyna Klau Michalczak (born 1981) is a Polish poet and writer with a PhD in sociology. She has published eight books: poetry collections, volumes of short stories, the novel “Zwiezda” (2025) and auto-non-fiction, including “Synu, jesteś kotem”. She has been shortlisted for the Gdynia Literary Prize and the KOS Poetry Prize, and is a member of Unia Literacka, the Polish writers’ union."
       : "Katarzyna Klau Michalczak (n. 1981) es una poeta y escritora polaca, doctora en sociología. Ha publicado ocho libros: poemarios, libros de relatos, la novela “Zwiezda” (2025) y auto-non-fiction, entre ellos “Synu, jesteś kotem”. Ha sido finalista del Premio Literario Gdynia y del Premio de Poesía KOS. Es miembro de Unia Literacka, la unión de escritoras y escritores de Polonia.";
-  const press = `<section class="press-kit content-shell"><p class="eyebrow">${pressTitle}</p><h2>${pressTitle}</h2><p>${esc(shortBio)}</p><a class="text-link" href="${routeFor("about", locale).path}">${locale === "pl" ? "Pełne bio: O mnie" : locale === "en" ? "Full bio: About me" : "Biografía completa: Sobre mí"} ${arrow}</a></section>`;
+  const photoLabel = locale === "pl" ? "Zdjęcie do pobrania" : locale === "en" ? "Download portrait" : "Descargar retrato";
+  const photoCredits = locale === "pl" ? ["Zdjęcie: Justyna Lazizi", "Zdjęcie: archiwum prywatne"] : locale === "en" ? ["Photo: Justyna Lazizi", "Photo: private archive"] : ["Foto: Justyna Lazizi", "Foto: archivo privado"];
+  const pressPhotos = [portraits[2], portraits[4]].map((portrait, index) => `<figure class="press-photo"><a href="${portrait.src}" download="${index === 0 ? "katarzyna-michalczak-justyna-lazizi.jpg" : "katarzyna-michalczak-private-archive.jpg"}"><img src="${portrait.src}" alt="${esc(portrait.alt[locale] || portrait.alt.en)}" width="${portrait.width}" height="${portrait.height}" loading="lazy" decoding="async"><span>${photoLabel} ${arrow}</span></a><figcaption>${photoCredits[index]}</figcaption></figure>`).join("");
+  const pressContact = locale === "pl" ? "Kontakt dla mediów" : locale === "en" ? "Press contact" : "Contacto de prensa";
+  const encodedEmail = "6b617369612e6d696368616c637a616b40676d61696c2e636f6d";
+  const press = `<section class="press-kit content-shell"><p class="eyebrow">${pressTitle}</p><h2>${pressTitle}</h2><p>${esc(shortBio)}</p><a class="text-link" href="${routeFor("about", locale).path}">${locale === "pl" ? "Pełne bio: O mnie" : locale === "en" ? "Full bio: About me" : "Biografía completa: Sobre mí"} ${arrow}</a><div class="press-photos" aria-label="${photoLabel}">${pressPhotos}</div><p class="press-contact"><span>${pressContact}:</span> <a data-contact-email="${encodedEmail}" href="${routeFor("contact", locale).path}">${locale === "pl" ? "Napisz" : locale === "en" ? "Email" : "Correo"}</a></p></section>`;
   const mediaIntro = locale === "pl" ? "Rozmowy, recenzje i audycje o moich książkach. Dziennikarką lub organizatorką? Na dole strony znajdziesz bio." : locale === "en" ? "Interviews, reviews and broadcasts about my books. If you are a journalist or an organiser, you will find a bio at the bottom of this page." : "Entrevistas, reseñas y programas sobre mis libros. Si eres periodista u organizas eventos, al final de la página encontrarás una biografía.";
-  return layout("media", locale, `${pageIntro(strings.mediaKicker, strings.mediaTitle, mediaIntro)}${groups}${press}`, null, siteUrl);
+  return layout("media", locale, `${pageIntro(strings.mediaKicker, strings.mediaTitle, mediaIntro)}${groups}${otherAppearances}${press}`, null, siteUrl);
 }
 
 function contactPage(locale, siteUrl) {

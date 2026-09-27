@@ -34,7 +34,7 @@ export const awards = [
     }
   },
   {
-    year: "",
+    year: "2016",
     text: {
       pl: "Nagroda Główna XXII Ogólnopolskiego Konkursu Poetyckiego im. Jacka Bierezina za projekt tomu „Pamięć przyjęć”",
       en: "Grand Prize at the 22nd Jacek Bierezin National Poetry Competition for the manuscript Pamięć przyjęć"
@@ -189,7 +189,7 @@ export const bookCopy = {
       pl: "Trzynaście opowiadań o kobietach na różnych etapach życia: od dziewczynek poznających świat po starsze bohaterki. O relacjach, których nie ma, a które bardzo chciałoby się mieć. Większość książki powstała w 2017 roku na rezydencji Can Serrat.",
       en: "Thirteen stories about women at different stages of life, from girls discovering the world to older characters. About the relationships we do not have and very much wish we did. Most of the book was written in 2017 at the Can Serrat residency.",
       es: "Trece relatos sobre mujeres en distintas etapas de la vida: desde niñas que descubren el mundo hasta personajes mayores. Sobre las relaciones que no existen y que tanto nos gustaría tener. La mayor parte del libro nació en 2017 en la residencia Can Serrat."
-    }, quotes: [], publisher: ""
+    }, quotes: [], publisher: "https://wydawnictwocyranka.pl/pl/p/Klub-snow-ebook/43"
   },
   "Tysiąc saun": {
     description: {
@@ -228,7 +228,7 @@ export const bookCopy = {
       es: "Un libro sobre cómo querer y ver de verdad a un hijo que no cumple las expectativas de su madre. En él toma la palabra también mi hijo, que está en el espectro autista y entonces tenía diecisiete años."
     },
     quotes: [{ text: { pl: "ważna dla rodziców dzieci neuroróżnorodnych, ale nie tylko", en: "important for parents of neurodivergent children, and not only for them", es: "importante para madres y padres de hijos neurodivergentes, y no solo para ellos" }, author: "Justyna Sobolewska", source: "Polityka · 24.01.2023" }],
-    publisher: ""
+    publisher: "https://wydawnictwocyranka.pl/pl/p/Synu%2C-jestes-kotem/78"
   },
   "Ćwierćświatek": {
     description: {

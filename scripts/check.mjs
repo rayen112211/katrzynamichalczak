@@ -28,8 +28,13 @@ for (const file of (await walk(output)).filter((item) => item.endsWith(".html"))
   if (!/<meta name="description" content="[^"]+">/.test(html)) errors.push(`${relative}: missing description`);
   if (!/class="skip-link"/.test(html)) errors.push(`${relative}: missing skip link`);
   if (!/class="language-switch"/.test(html)) errors.push(`${relative}: missing language switch`);
+  if (!/<script type="application\/ld\+json">/.test(html) || !/"@type":"Person"/.test(html)) errors.push(`${relative}: missing Person structured data`);
   if (/\bundefined\b/.test(html)) errors.push(`${relative}: contains undefined output`);
   if (/Wkrótce|Krótki film|book-cover-placeholder/.test(html)) errors.push(`${relative}: contains unfinished placeholder content`);
+  for (const [, attributes] of html.matchAll(/<img\b([^>]*)>/g)) {
+    if (!/\balt="[^"]*"/.test(attributes)) errors.push(`${relative}: image missing alt text`);
+    if (!/\bwidth="\d+"/.test(attributes) || !/\bheight="\d+"/.test(attributes)) errors.push(`${relative}: image missing dimensions`);
+  }
   for (const [, localPath] of html.matchAll(/href="(\/(?!\/)[^"#?]*)/g)) {
     if (/\.[a-z0-9]+$/i.test(localPath)) continue;
     if (knownRoutes.has(localPath)) continue;
