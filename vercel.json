@@ -4,9 +4,9 @@
   "cleanUrls": true,
   "trailingSlash": true,
   "redirects": [
-    { "source": "/warsztaty", "destination": "/kontakt/", "permanent": true },
-    { "source": "/en/workshops", "destination": "/en/work-with-me/", "permanent": true },
-    { "source": "/es/talleres", "destination": "/es/colaboraciones/", "permanent": true }
+    { "source": "/warsztaty/", "destination": "/kontakt/", "permanent": true },
+    { "source": "/en/workshops/", "destination": "/en/work-with-me/", "permanent": true },
+    { "source": "/es/talleres/", "destination": "/es/colaboraciones/", "permanent": true }
   ],
   "headers": [
     {

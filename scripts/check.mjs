@@ -92,7 +92,7 @@ for (const route of allRoutes) {
 }
 const vercel = JSON.parse(await readFile(path.join(root, "vercel.json"), "utf8"));
 for (const redirect of redirects) {
-  if (!vercel.redirects.some((rule) => rule.source === redirect.source.replace(/\/$/, "") && rule.destination === redirect.destination && rule.permanent)) errors.push(`Missing production redirect for ${redirect.source}`);
+  if (!vercel.redirects.some((rule) => rule.source === redirect.source && rule.destination === redirect.destination && rule.permanent)) errors.push(`Missing production redirect for ${redirect.source}`);
   if (sitemap.includes(`<loc>${siteUrl}${redirect.source}</loc>`)) errors.push(`Redirect included in sitemap: ${redirect.source}`);
 }
 
