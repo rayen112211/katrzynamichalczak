@@ -72,15 +72,26 @@ menuButton?.addEventListener("click", () => {
 });
 
 navigation?.addEventListener("click", (event) => {
-  if (event.target instanceof HTMLAnchorElement) closeMenu();
+  if (event.target.closest("a")) closeMenu();
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && navigation?.classList.contains("is-open")) {
+  if (event.key !== "Escape") return;
+  const dropdown = navigation?.querySelector("details[open]");
+  if (dropdown) {
+    dropdown.removeAttribute("open");
+    dropdown.querySelector("summary").focus();
+  } else if (navigation?.classList.contains("is-open")) {
     closeMenu();
     menuButton.focus();
   }
 });
+
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".site-header")) closeMenu();
+});
+
+window.matchMedia("(max-width: 1180px)").addEventListener("change", closeMenu);
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const revealItems = document.querySelectorAll(".reveal");

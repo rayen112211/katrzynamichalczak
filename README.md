@@ -15,6 +15,10 @@ npm run dev
 
 Podgląd lokalny działa pod adresem `http://127.0.0.1:4173`. Kontrola linków wymaga połączenia z internetem.
 
+### Kontrola w przeglądarce
+
+Przy uruchomionym podglądzie `npm run check:browser` sprawdza wszystkie 30 stron w siedmiu rozmiarach ekranu (320–2560 px, także poziomo), ucięty tekst, zdjęcia, układ bio, menu, cytaty i ograniczenie animacji. Zapisuje zrzuty stron oraz raport w ignorowanym katalogu `worktmp/browser/`. Test wymaga Chrome i pakietu Playwright dostępnego lokalnie; `PLAYWRIGHT_MODULE` może wskazywać katalog istniejącej instalacji. Playwright nie jest zależnością strony ani produkcyjnego buildu. `QA_BASE` pozwala sprawdzić opublikowaną stronę zamiast podglądu, a `QA_CHANNEL` wybrać zainstalowany kanał przeglądarki.
+
 ## Publikacja
 
 Vercel buduje wszystkie 30 stron i uruchamia kontrolę przed publikacją. Każda strona korzysta z tego samego nagłówka, stopki i wersjonowanych plików CSS/JS. Stare adresy warsztatów przekierowują na stronę zaproszeń w odpowiednim języku.

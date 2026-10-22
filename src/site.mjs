@@ -319,7 +319,7 @@ function head(key, locale, siteUrl) {
 }
 
 function languageSwitch(key, locale) {
-  return `<div class="language-switch" aria-label="${copy[locale].language}">
+  return `<div class="language-switch" role="group" aria-label="${copy[locale].language}">
     <a href="${routeFor(key, "pl").path}" lang="pl"${locale === "pl" ? ` aria-current="page"` : ""}>PL</a>
     <span aria-hidden="true">/</span>
     <a href="${routeFor(key, "en").path}" lang="en"${locale === "en" ? ` aria-current="page"` : ""}>EN</a>
@@ -332,7 +332,7 @@ function header(key, locale) {
   const strings = copy[locale];
   const activePath = routeFor(key, locale).path;
   const nav = routeDefinitions.filter((route) => !route.hidden && route.key !== "workshops").map((route) => route.key === "books"
-    ? `<details class="book-nav"${["books", "poetry", "prose", "autofiction"].includes(key) ? " open" : ""}><summary>${route[locale].label}</summary><div class="book-subnav"><a href="${route[locale].path}">${strings.allBooksLabel}</a>${strings.bookCategories.map((category) => `<a href="${routeFor(category.route, locale).path}">${category.label}</a>`).join("")}</div></details>`
+    ? `<details class="book-nav"><summary${["books", "poetry", "prose", "autofiction"].includes(key) ? ` class="is-current"` : ""}>${route[locale].label}</summary><div class="book-subnav"><a href="${route[locale].path}"${key === "books" ? ` aria-current="page"` : ""}>${strings.allBooksLabel}</a>${strings.bookCategories.map((category) => `<a href="${routeFor(category.route, locale).path}"${key === category.route ? ` aria-current="page"` : ""}>${category.label}</a>`).join("")}</div></details>`
     : `<a class="${route.key === "contact" ? "nav-cta" : ""}" href="${route[locale].path}"${route[locale].path === activePath ? ` aria-current="page"` : ""}>${route[locale].label}</a>`).join("");
   return `<body data-page="${key}">
   <a class="skip-link" href="#main">${strings.skip}</a>
@@ -447,8 +447,8 @@ function homePage(locale, siteUrl) {
       <div class="quote-controls" hidden><button type="button" data-quote-prev aria-label="${locale === "pl" ? "Poprzedni cytat" : locale === "en" ? "Previous quote" : "Cita anterior"}">←</button><span data-quote-count>01 / 03</span><button type="button" data-quote-next aria-label="${locale === "pl" ? "Następny cytat" : locale === "en" ? "Next quote" : "Cita siguiente"}">→</button></div>
     </section>
     <section class="about content-shell" id="about" aria-labelledby="about-title">
-      <div class="about-title reveal"><p class="eyebrow">${strings.aboutKicker}</p><h2 id="about-title">${strings.aboutTitle}</h2></div>
-      <div class="about-copy reveal"><p>${esc(strings.homeBio)}</p><a class="text-link" href="${routeFor("about", locale).path}">${strings.heroLink} ${arrow}</a></div>
+      <div class="about-content"><div class="about-title"><p class="eyebrow">${strings.aboutKicker}</p><h2 id="about-title">${strings.aboutTitle}</h2></div>
+      <div class="about-copy"><p>${esc(strings.homeBio)}</p><a class="text-link" href="${routeFor("about", locale).path}">${strings.heroLink} ${arrow}</a></div></div>
       ${imageFigure(portraits[2], "about-photo reveal", locale)}
     </section>
     <section class="home-timeline content-shell" aria-labelledby="timeline-title">
@@ -584,7 +584,7 @@ function mediaPage(locale, siteUrl) {
   const photoLabel = locale === "pl" ? "Zdjęcie do pobrania" : locale === "en" ? "Download portrait" : "Descargar retrato";
   const pressPhotos = [portraits[2], portraits[4]].map((portrait, index) => `<figure class="press-photo"><a href="${portrait.src}" download="katarzyna-michalczak-portrait-${index + 1}.jpg"><img src="${portrait.src}" alt="${esc(portrait.alt[locale])}" width="${portrait.width}" height="${portrait.height}" loading="lazy" decoding="async"><span>${photoLabel} ${arrow}</span></a><figcaption>${index === 0 ? "Justyna Lazizi" : locale === "pl" ? "Archiwum prywatne" : locale === "en" ? "Private archive" : "Archivo privado"}</figcaption></figure>`).join("");
   const pressContact = locale === "pl" ? "Kontakt dla mediów" : locale === "en" ? "Press contact" : "Contacto de prensa";
-  const press = `<section class="press-kit content-shell"><p class="eyebrow">${pressTitle}</p><h2>${pressTitle}</h2><p>${esc(shortBio)}</p><a class="text-link" href="${routeFor("about", locale).path}">${locale === "pl" ? "Pełne bio: O mnie" : locale === "en" ? "Full bio: About me" : "Biografía completa: Sobre mí"} ${arrow}</a><div class="press-photos" aria-label="${photoLabel}">${pressPhotos}</div><p class="press-contact"><span>${pressContact}:</span> <a href="mailto:${contactEmail}">${contactEmail}</a></p></section>`;
+  const press = `<section class="press-kit content-shell" id="press" aria-labelledby="press-title"><div class="press-copy"><h2 id="press-title">${pressTitle}</h2><p>${esc(shortBio)}</p><a class="text-link" href="${routeFor("about", locale).path}">${locale === "pl" ? "Pełne bio: O mnie" : locale === "en" ? "Full bio: About me" : "Biografía completa: Sobre mí"} ${arrow}</a><p class="press-contact"><span>${pressContact}:</span> <a href="mailto:${contactEmail}">${contactEmail}</a></p></div><div class="press-photos" aria-label="${photoLabel}">${pressPhotos}</div></section>`;
   const mediaIntro = locale === "pl" ? "Rozmowy, recenzje i audycje o moich książkach. Szukasz materiałów prasowych? Na dole strony znajdziesz biografię i zdjęcia do pobrania." : locale === "en" ? "Interviews, reviews and broadcasts about my books. If you are a journalist or an organiser, you will find a bio at the bottom of this page." : "Entrevistas, reseñas y programas sobre mis libros. Si eres periodista u organizas eventos, al final de la página encontrarás una biografía.";
   return layout("media", locale, `${pageIntro(strings.mediaKicker, strings.mediaTitle, mediaIntro)}${groups}${otherAppearances}${press}`, null, siteUrl);
 }
@@ -604,7 +604,7 @@ function contactPage(locale, siteUrl) {
       <article><p class="eyebrow">${sectionTitles[4]}</p><p>${esc(strings.practical)}</p></article>
     </section>
     <section class="contact-layout content-shell">
-      <div class="contact-copy"><p>${esc(strings.replyTime)}</p><a class="contact-email" href="mailto:${contactEmail}">${contactEmail}</a><a class="text-link" href="${routeFor("media", locale).path}">${locale === "pl" ? "Materiały dla prasy" : locale === "en" ? "Press materials" : "Materiales de prensa"} ${arrow}</a></div>
+      <div class="contact-copy"><p>${esc(strings.replyTime)}</p><a class="contact-email" href="mailto:${contactEmail}">${contactEmail}</a><a class="text-link" href="${routeFor("media", locale).path}#press">${locale === "pl" ? "Materiały dla prasy" : locale === "en" ? "Press materials" : "Materiales de prensa"} ${arrow}</a></div>
       <form class="contact-form" data-contact-form data-email="${contactEmail}" data-subject="${strings.emailSubject}" data-copy-success="${formStrings.copied}" data-copy-failure="${formStrings.copyFailed}" hidden aria-describedby="contact-help">
         <p class="contact-help" id="contact-help">${formStrings.help}</p>
         <label>${strings.name}<input name="name" autocomplete="name" required></label>
