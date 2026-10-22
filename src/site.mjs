@@ -10,6 +10,7 @@ import {
   portraits,
   workshops
 } from "./content.mjs";
+import { contactCopy, contactEmail } from "./contact.mjs";
 
 const routeDefinitions = [
   { key: "home", pl: { path: "/", label: "Strona główna" }, en: { path: "/en/", label: "Home" }, es: { path: "/es/", label: "Inicio" } },
@@ -20,7 +21,7 @@ const routeDefinitions = [
   { key: "autofiction", hidden: true, pl: { path: "/ksiazki/auto-non-fiction/", label: "Auto-non-fiction" }, en: { path: "/en/books/auto-non-fiction/", label: "Auto-non-fiction" }, es: { path: "/es/libros/auto-non-fiction/", label: "Auto-non-fiction" } },
   { key: "articles", pl: { path: "/artykuly/", label: "Artykuły" }, en: { path: "/en/articles/", label: "Articles" }, es: { path: "/es/articulos/", label: "Artículos" } },
   { key: "children", pl: { path: "/dla-dzieci/", label: "Dla dzieci" }, en: { path: "/en/for-children/", label: "For children" }, es: { path: "/es/para-ninas/", label: "Para niñas" } },
-  { key: "workshops", pl: { path: "/warsztaty/", label: "Warsztaty" }, en: { path: "/en/workshops/", label: "Workshops" }, es: { path: "/es/talleres/", label: "Talleres" } },
+  { key: "workshops", redirectTo: "contact", pl: { path: "/warsztaty/", label: "Warsztaty" }, en: { path: "/en/workshops/", label: "Workshops" }, es: { path: "/es/talleres/", label: "Talleres" } },
   { key: "media", pl: { path: "/media/", label: "Media o moich książkach" }, en: { path: "/en/media/", label: "Books in the media" }, es: { path: "/es/medios/", label: "Medios" } },
   { key: "contact", pl: { path: "/kontakt/", label: "Zaproś mnie" }, en: { path: "/en/work-with-me/", label: "Invite me" }, es: { path: "/es/colaboraciones/", label: "Invítame" } }
 ];
@@ -196,7 +197,7 @@ const copy = {
 
 copy.es = {
   ...copy.en,
-  locale: "es_ES", skip: "Saltar al contenido", homeLabel: "Katarzyna Klau Michalczak — inicio", mainNav: "Navegación principal", footerNav: "Navegación del pie", language: "Idioma del sitio", menu: "Menú", role: "Poeta · escritora", tagline: "Son las orillas las que dan forma al curso del río.", punchline: "Nunca renunciaré a los matorrales.", heroLink: "Sobre mí", homeCtaBooks: "Conoce los libros", homeCtaInvite: "Invítame", heroSide: "poesía / prosa / relatos", marquee: "poesía · prosa · relatos · talleres · escritura para niñas · ", aboutKicker: "Sobre mí", aboutTitle: "Desde la perspectiva de los matorrales.", quote: "Con cada nuevo libro la escritura se vuelve más importante para mí.", awardsKicker: "Premios y nominaciones", awardsTitle: "Cinco momentos<br>importantes", portraitLabel: "Retrato de Katarzyna Klau Michalczak", photoWords: "poesía<br>prosa<br>relatos", selectedKicker: "Libros", selectedTitle: "Algunos títulos", timelineTitle: "Libros, premios, residencias", timelineNote: "Fechas seleccionadas", invitationTitle: "Invitaciones", invitationText: "Encuentros · talleres de escritura · mesas redondas · charlas", allBooks: "Todos los libros", deeperKicker: "Explora", deeperTitle: "Descubre más", bibliography: "Bibliografía", booksTitle: "Libros", bookCategories: [{id:"poesia",key:"poetry",route:"poetry",label:"Poesía"},{id:"proza",key:"prose",route:"prose",label:"Prosa"},{id:"auto-non-fiction",key:"autofiction",route:"autofiction",label:"Auto-non-fiction"}], allBooksLabel: "Todos los libros", booksNote: "Poesía · relatos · prosa", mediaForBook: "En los medios", publisherLink: "Página de la editorial", upcoming: "En preparación", upcomingNote: "Próxima publicación", texts: "Textos", articlesTitle: "Artículos", articlesNote: "Przekrój · Gazeta.pl · Kosmos dla Dziewczynek", childrenKicker: "Para niñas", childrenTitle: "Nazwij TO", guides: "Guías", mainAuthor: "autora principal", writing: "Escritura", workshopsTitle: "Talleres", workshopsNote: "En grupo e individuales", places: "Lugares", scope: "Formas de trabajo", mediaKicker: "Entrevistas · reseñas · vídeo", mediaTitle: "Medios sobre mis libros", mediaNote: "Los materiales enlazados están publicados en polaco.", contactTitle: "Hablemos", contactInvite: "Colaboraciones", contactNote: "Encuentros · talleres · mesas redondas · charlas", contactIntro: "Escríbeme para encuentros literarios, talleres de escritura, mesas redondas y charlas.", homeBio: "Me interesa lo que para otras personas resulta menor o prescindible. Por eso escribo sobre asuntos importantes desde una perspectiva que no es la evidente: en poemas, relatos, novela y auto-non-fiction. He publicado ocho libros, finalistas entre otros del Premio Literario Gdynia y del Premio de Poesía KOS. Soy doctora en sociología y miembro de Unia Literacka, la unión de escritoras y escritores de Polonia.", bookQuote: "“Esta historia brilla con luz clara, aunque venga de la oscuridad.” — Marcin Zegadło, Księgozbiry", inviteIntro: "Amo a la gente y las conversaciones sobre literatura que se salen del camino principal. Viajo a bibliotecas, festivales, centros culturales y espacios que trabajan fuera de la corriente principal.", eventMeetings: "Conversaciones en torno a mis libros: poesía, prosa y auto-non-fiction. Puedo leer fragmentos y contar cómo nacieron. Siempre respondo con gusto a las preguntas del público, que a menudo se convierten en horas de conversación, durante el encuentro o después.", eventTalks: "Temas: TDAH en mujeres adultas, la maternidad frente a un hijo en el espectro autista, las relaciones fuera de la norma, feminismo, escribir sobre la propia vida.", whereBeen: "Festival Literario de Sopot 2024 · Wschowa · Gniezno · Milanówek · Galería Zachęta de Varsovia", practical: "Vivo en Milanówek, cerca de Varsovia, y paso la mitad fría del año en Andalucía. Puedo participar en encuentros en polaco, inglés y español.", replyTime: "Escríbeme contando qué buscas: tipo de evento, fecha y lugar. Respondo en un plazo de dos días.", journalismIntro: "En el periodismo también miro debajo del forro. He escrito para “Przekrój”, Gazeta.pl y “Kosmos dla Dziewczynek” sobre lo que suele quedarse al margen: el acoso en la hostelería, la vida con trastorno bipolar, las mujeres de cuarenta años y lo que llega después de la jubilación.", childIntro: "Entre 2021 y 2026 fui editora y autora de la revista “Kosmos dla Dziewczynek”. Escribí para lectoras de 6 a 14 años sobre asuntos de los que las personas adultas a menudo tienen miedo de hablar con las niñas.", childSeries: "En la serie “Nazwij TO” escribí, con un lenguaje acogedor y adaptado a su edad, sobre experiencias de las niñas: anorexia, depresión, el divorcio de sus madres y padres y distintas formas de abuso. Cada vez me importaba que la lectora viviera algo importante y entendiera algo, sin sentirse abrumada. Según me cuentan las niñas, el objetivo se cumplió: esos artículos, magníficamente ilustrados por Kasia Piątek, significan mucho para ellas.", name: "Nombre", institution: "Institución", eventType: "Tipo de evento", date: "Fecha", place: "Lugar", message: "Mensaje", sendRequest: "Preparar correo", emailSubject: "Invitación a colaborar", originalTitle: "Título original", instagram: "Instagram"
+  locale: "es_ES", openNew: "Abrir en una pestaña nueva", skip: "Saltar al contenido", homeLabel: "Katarzyna Klau Michalczak — inicio", mainNav: "Navegación principal", footerNav: "Navegación del pie", language: "Idioma del sitio", menu: "Menú", role: "Poeta · escritora", tagline: "Son las orillas las que dan forma al curso del río.", punchline: "Nunca renunciaré a los matorrales.", heroLink: "Sobre mí", homeCtaBooks: "Conoce los libros", homeCtaInvite: "Invítame", heroSide: "poesía / prosa / relatos", marquee: "poesía · prosa · relatos · talleres · escritura para niñas · ", aboutKicker: "Sobre mí", aboutTitle: "Desde la perspectiva de los matorrales.", quote: "Con cada nuevo libro la escritura se vuelve más importante para mí.", awardsKicker: "Premios y nominaciones", awardsTitle: "Cinco momentos<br>importantes", portraitLabel: "Retrato de Katarzyna Klau Michalczak", photoWords: "poesía<br>prosa<br>relatos", selectedKicker: "Libros", selectedTitle: "Algunos títulos", timelineTitle: "Libros, premios, residencias", timelineNote: "Fechas seleccionadas", invitationTitle: "Invitaciones", invitationText: "Encuentros · talleres de escritura · mesas redondas · charlas", allBooks: "Todos los libros", deeperKicker: "Explora", deeperTitle: "Descubre más", bibliography: "Bibliografía", booksTitle: "Libros", bookCategories: [{id:"poesia",key:"poetry",route:"poetry",label:"Poesía"},{id:"proza",key:"prose",route:"prose",label:"Prosa"},{id:"auto-non-fiction",key:"autofiction",route:"autofiction",label:"Auto-non-fiction"}], allBooksLabel: "Todos los libros", booksNote: "Poesía · relatos · prosa", mediaForBook: "En los medios", publisherLink: "Página de la editorial", upcoming: "En preparación", upcomingNote: "Próxima publicación", texts: "Textos", articlesTitle: "Artículos", articlesNote: "Przekrój · Gazeta.pl · Kosmos dla Dziewczynek", childrenKicker: "Para niñas", childrenTitle: "Nazwij TO", guides: "Guías", mainAuthor: "autora principal", writing: "Escritura", workshopsTitle: "Talleres", workshopsNote: "En grupo e individuales", places: "Lugares", scope: "Formas de trabajo", mediaKicker: "Entrevistas · reseñas · vídeo", mediaTitle: "Medios sobre mis libros", mediaNote: "Los materiales enlazados están publicados en polaco.", contactTitle: "Hablemos", contactInvite: "Colaboraciones", contactNote: "Encuentros · talleres · mesas redondas · charlas", contactIntro: "Escríbeme para encuentros literarios, talleres de escritura, mesas redondas y charlas.", homeBio: "Me interesa lo que para otras personas resulta menor o prescindible. Por eso escribo sobre asuntos importantes desde una perspectiva que no es la evidente: en poemas, relatos, novela y auto-non-fiction. He publicado ocho libros, finalistas entre otros del Premio Literario Gdynia y del Premio de Poesía KOS. Soy doctora en sociología y miembro de Unia Literacka, la unión de escritoras y escritores de Polonia.", bookQuote: "“Esta historia brilla con luz clara, aunque venga de la oscuridad.” — Marcin Zegadło, Księgozbiry", inviteIntro: "Amo a la gente y las conversaciones sobre literatura que se salen del camino principal. Viajo a bibliotecas, festivales, centros culturales y espacios que trabajan fuera de la corriente principal.", eventMeetings: "Conversaciones en torno a mis libros: poesía, prosa y auto-non-fiction. Puedo leer fragmentos y contar cómo nacieron. Siempre respondo con gusto a las preguntas del público, que a menudo se convierten en horas de conversación, durante el encuentro o después.", eventTalks: "Temas: TDAH en mujeres adultas, la maternidad frente a un hijo en el espectro autista, las relaciones fuera de la norma, feminismo, escribir sobre la propia vida.", whereBeen: "Festival Literario de Sopot 2024 · Wschowa · Gniezno · Milanówek · Galería Zachęta de Varsovia", practical: "Vivo en Milanówek, cerca de Varsovia, y paso la mitad fría del año en Andalucía. Puedo participar en encuentros en polaco, inglés y español.", replyTime: "Escríbeme contando qué buscas: tipo de evento, fecha y lugar. Respondo en un plazo de dos días.", journalismIntro: "En el periodismo también miro debajo del forro. He escrito para “Przekrój”, Gazeta.pl y “Kosmos dla Dziewczynek” sobre lo que suele quedarse al margen: el acoso en la hostelería, la vida con trastorno bipolar, las mujeres de cuarenta años y lo que llega después de la jubilación.", childIntro: "Entre 2021 y 2026 fui editora y autora de la revista “Kosmos dla Dziewczynek”. Escribí para lectoras de 6 a 14 años sobre asuntos de los que las personas adultas a menudo tienen miedo de hablar con las niñas.", childSeries: "En la serie “Nazwij TO” escribí, con un lenguaje acogedor y adaptado a su edad, sobre experiencias de las niñas: anorexia, depresión, el divorcio de sus madres y padres y distintas formas de abuso. Cada vez me importaba que la lectora viviera algo importante y entendiera algo, sin sentirse abrumada. Según me cuentan las niñas, el objetivo se cumplió: esos artículos, magníficamente ilustrados por Kasia Piątek, significan mucho para ellas.", name: "Nombre", institution: "Institución", eventType: "Tipo de evento", date: "Fecha", place: "Lugar", message: "Mensaje", sendRequest: "Preparar correo", emailSubject: "Invitación a colaborar", originalTitle: "Título original", instagram: "Instagram"
 };
 
 export const authorProfiles = [
@@ -208,42 +209,42 @@ export const authorProfiles = [
 const pageData = {
   pl: {
     home: { title: "Katarzyna Klau Michalczak — poetka i pisarka", description: "Katarzyna Klau Michalczak (Katarzyna Michalczak): poetka i pisarka, autorka „Zwiezdy” i „Synu, jesteś kotem”. Spotkania autorskie, warsztaty, panele." },
-    about: { title: "O mnie — Katarzyna Michalczak", description: "Poetka, pisarka, doktorka socjologii. Osiem książek, nominacje do Nagrody Literackiej Gdynia i Nagrody KOS." },
+    about: { title: "O mnie — Katarzyna Klau Michalczak", description: "Poetka, pisarka, doktorka socjologii. Osiem książek, nominacje do Nagrody Literackiej Gdynia i Nagrody KOS." },
     books: { title: "Książki — Katarzyna Klau Michalczak", description: "Poezja, opowiadania i proza Katarzyny Klau Michalczak — od „Pamięci przyjęć” po „Zwiezdę”." },
-    poetry: { title: "Poezja — Katarzyna Michalczak", description: "Tomy wierszy Katarzyny Michalczak: „Pamięć przyjęć”, „Tysiąc saun”, „śń”." },
-    prose: { title: "Proza — Katarzyna Michalczak", description: "Powieść „Zwiezda” i opowiadania Katarzyny Michalczak: „Klub snów”, „Mam na imię nie mam”." },
-    autofiction: { title: "Auto-non-fiction — Katarzyna Michalczak", description: "„Synu, jesteś kotem” i „Gdzie zgłosić dzikie zwierzę”: książki o macierzyństwie w spektrum autyzmu i o ADHD." },
+    poetry: { title: "Poezja — Katarzyna Klau Michalczak", description: "Tomy wierszy Katarzyny Michalczak: „Pamięć przyjęć”, „Tysiąc saun”, „śń”." },
+    prose: { title: "Proza — Katarzyna Klau Michalczak", description: "Powieść „Zwiezda” i opowiadania Katarzyny Michalczak: „Klub snów”, „Mam na imię nie mam”." },
+    autofiction: { title: "Auto-non-fiction — Katarzyna Klau Michalczak", description: "„Synu, jesteś kotem” i „Gdzie zgłosić dzikie zwierzę”: książki o macierzyństwie w spektrum autyzmu i o ADHD." },
     articles: { title: "Artykuły — Katarzyna Klau Michalczak", description: "Publicystyka Katarzyny Michalczak w „Przekroju”, Gazeta.pl i „Kosmosie dla Dziewczynek”." },
     children: { title: "Dla dzieci — Katarzyna Klau Michalczak", description: "Teksty dla dziewczynek: cykl „Nazwij TO” i przewodniki Fundacji Kosmos dla Dziewczynek." },
     workshops: { title: "Warsztaty — Katarzyna Klau Michalczak", description: "Warsztaty pisania i indywidualna praca nad tekstem z Katarzyną Klau Michalczak." },
     media: { title: "Media o moich książkach — Katarzyna Klau Michalczak", description: "Recenzje, wywiady i audycje o książkach Katarzyny Michalczak. Materiały dla prasy." },
-    contact: { title: "Zaproś mnie — Katarzyna Michalczak", description: "Zaproś Katarzynę Michalczak na spotkanie autorskie, warsztaty pisania lub panel." }
+    contact: { title: "Zaproś mnie — Katarzyna Klau Michalczak", description: "Zaproś Katarzynę Michalczak na spotkanie autorskie, warsztaty pisania lub panel." }
   },
   en: {
     home: { title: "Katarzyna Klau Michalczak — poet and writer", description: "Katarzyna Klau Michalczak (Katarzyna Michalczak): Polish poet and writer, author of “Zwiezda” and “Synu, jesteś kotem”. Author meetings, workshops, panels." },
-    about: { title: "About me — Katarzyna Michalczak", description: "Poet, writer, PhD in sociology. Eight books, shortlisted for the Gdynia Literary Prize and the KOS Poetry Prize." },
+    about: { title: "About me — Katarzyna Klau Michalczak", description: "Poet, writer, PhD in sociology. Eight books, shortlisted for the Gdynia Literary Prize and the KOS Poetry Prize." },
     books: { title: "Books — Katarzyna Klau Michalczak", description: "Poetry, short stories and prose by Katarzyna Klau Michalczak, from Pamięć przyjęć to Zwiezda." },
-    poetry: { title: "Poetry — Katarzyna Michalczak", description: "Poetry collections by Katarzyna Michalczak: Pamięć przyjęć, Tysiąc saun, śń." },
-    prose: { title: "Prose — Katarzyna Michalczak", description: "The novel Zwiezda and short stories by Katarzyna Michalczak: Klub snów, Mam na imię nie mam." },
-    autofiction: { title: "Auto-non-fiction — Katarzyna Michalczak", description: "Synu, jesteś kotem and Gdzie zgłosić dzikie zwierzę: books on mothering a child on the autism spectrum and ADHD." },
+    poetry: { title: "Poetry — Katarzyna Klau Michalczak", description: "Poetry collections by Katarzyna Michalczak: Pamięć przyjęć, Tysiąc saun, śń." },
+    prose: { title: "Prose — Katarzyna Klau Michalczak", description: "The novel Zwiezda and short stories by Katarzyna Michalczak: Klub snów, Mam na imię nie mam." },
+    autofiction: { title: "Auto-non-fiction — Katarzyna Klau Michalczak", description: "Synu, jesteś kotem and Gdzie zgłosić dzikie zwierzę: books on mothering a child on the autism spectrum and ADHD." },
     articles: { title: "Articles — Katarzyna Klau Michalczak", description: "Journalism by Katarzyna Michalczak in “Przekrój”, Gazeta.pl and “Kosmos dla Dziewczynek”." },
     children: { title: "For children — Katarzyna Klau Michalczak", description: "Writing for girls: the “Nazwij TO” series and guides by the Kosmos dla Dziewczynek Foundation." },
     workshops: { title: "Workshops — Katarzyna Klau Michalczak", description: "Writing workshops and one-to-one text development with Katarzyna Klau Michalczak." },
     media: { title: "Books in the media — Katarzyna Klau Michalczak", description: "Reviews, interviews and broadcasts about the books of Katarzyna Michalczak. Press materials." },
-    contact: { title: "Work with me — Katarzyna Michalczak", description: "Contact Katarzyna Michalczak about author meetings, writing workshops, panels and talks." }
+    contact: { title: "Work with me — Katarzyna Klau Michalczak", description: "Contact Katarzyna Michalczak about author meetings, writing workshops, panels and talks." }
   },
   es: {
     home: { title: "Katarzyna Klau Michalczak — poeta y escritora", description: "Katarzyna Klau Michalczak (Katarzyna Michalczak): poeta y escritora polaca, autora de ‘Zwiezda’ y ‘Synu, jesteś kotem’. Encuentros, talleres y mesas redondas." },
-    about: { title: "Sobre mí — Katarzyna Michalczak", description: "Poeta, escritora, doctora en sociología. Ocho libros, finalista del Premio Literario Gdynia y del Premio de Poesía KOS." },
+    about: { title: "Sobre mí — Katarzyna Klau Michalczak", description: "Poeta, escritora, doctora en sociología. Ocho libros, finalista del Premio Literario Gdynia y del Premio de Poesía KOS." },
     books: { title: "Libros — Katarzyna Klau Michalczak", description: "Poemarios de Katarzyna Michalczak: ‘Pamięć przyjęć’, ‘Tysiąc saun’, ‘śń’." },
-    poetry: { title: "Poesía — Katarzyna Michalczak", description: "Poemarios de Katarzyna Michalczak: ‘Pamięć przyjęć’, ‘Tysiąc saun’, ‘śń’." },
-    prose: { title: "Prosa — Katarzyna Michalczak", description: "La novela ‘Zwiezda’ y los relatos de Katarzyna Michalczak: ‘Klub snów’, ‘Mam na imię nie mam’." },
-    autofiction: { title: "Auto-non-fiction — Katarzyna Michalczak", description: "‘Synu, jesteś kotem’ y ‘Gdzie zgłosić dzikie zwierzę’: libros sobre maternidad y TDAH." },
-    articles: { title: "Artículos — Katarzyna Michalczak", description: "Periodismo de Katarzyna Michalczak en ‘Przekrój’, Gazeta.pl y ‘Kosmos dla Dziewczynek’." },
-    children: { title: "Para niñas — Katarzyna Michalczak", description: "Textos para niñas: la serie ‘Nazwij TO’ y las guías de la Fundación Kosmos dla Dziewczynek." },
-    workshops: { title: "Talleres — Katarzyna Michalczak", description: "Talleres de escritura y trabajo individual sobre textos con Katarzyna Michalczak." },
-    media: { title: "Medios — Katarzyna Michalczak", description: "Reseñas, entrevistas y programas sobre los libros de Katarzyna Michalczak. Materiales para prensa." },
-    contact: { title: "Colaboraciones — Katarzyna Michalczak", description: "Invita a Katarzyna Michalczak a un encuentro literario, un taller de escritura o una mesa redonda." }
+    poetry: { title: "Poesía — Katarzyna Klau Michalczak", description: "Poemarios de Katarzyna Michalczak: ‘Pamięć przyjęć’, ‘Tysiąc saun’, ‘śń’." },
+    prose: { title: "Prosa — Katarzyna Klau Michalczak", description: "La novela ‘Zwiezda’ y los relatos de Katarzyna Michalczak: ‘Klub snów’, ‘Mam na imię nie mam’." },
+    autofiction: { title: "Auto-non-fiction — Katarzyna Klau Michalczak", description: "‘Synu, jesteś kotem’ y ‘Gdzie zgłosić dzikie zwierzę’: libros sobre maternidad y TDAH." },
+    articles: { title: "Artículos — Katarzyna Klau Michalczak", description: "Periodismo de Katarzyna Michalczak en ‘Przekrój’, Gazeta.pl y ‘Kosmos dla Dziewczynek’." },
+    children: { title: "Para niñas — Katarzyna Klau Michalczak", description: "Textos para niñas: la serie ‘Nazwij TO’ y las guías de la Fundación Kosmos dla Dziewczynek." },
+    workshops: { title: "Talleres — Katarzyna Klau Michalczak", description: "Talleres de escritura y trabajo individual sobre textos con Katarzyna Michalczak." },
+    media: { title: "Medios — Katarzyna Klau Michalczak", description: "Reseñas, entrevistas y programas sobre los libros de Katarzyna Michalczak. Materiales para prensa." },
+    contact: { title: "Colaboraciones — Katarzyna Klau Michalczak", description: "Invita a Katarzyna Michalczak a un encuentro literario, un taller de escritura o una mesa redonda." }
   }
 };
 
@@ -270,7 +271,7 @@ function routeFor(key, locale) {
 function imageFigure(portrait, className, locale) {
   const priority = className.includes("hero-photo") ? `fetchpriority="high"` : `loading="lazy"`;
   return `<figure class="photo ${className}">
-    <img src="${portrait.src}" alt="${esc(portrait.alt[locale] || portrait.alt.en)}" width="${portrait.width}" height="${portrait.height}" ${priority} decoding="async">
+    <img src="${portrait.src}" alt="${esc(portrait.alt[locale])}" width="${portrait.width}" height="${portrait.height}" ${priority} decoding="async">
   </figure>`;
 }
 
@@ -307,7 +308,7 @@ function head(key, locale, siteUrl) {
   <meta property="og:title" content="${esc(meta.title)}">
   <meta property="og:description" content="${esc(meta.description)}">
   ${canonical ? `<meta property="og:url" content="${canonical}">` : ""}
-  ${socialImage ? `<meta property="og:image" content="${socialImage}"><meta property="og:image:alt" content="${esc(portraits[0].alt[locale] || portraits[0].alt.en)}">` : ""}
+  ${socialImage ? `<meta property="og:image" content="${socialImage}"><meta property="og:image:alt" content="${esc(portraits[0].alt[locale])}">` : ""}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${esc(meta.title)}">
   <meta name="twitter:description" content="${esc(meta.description)}">
@@ -333,11 +334,11 @@ function header(key, locale) {
   const nav = routeDefinitions.filter((route) => !route.hidden && route.key !== "workshops").map((route) => route.key === "books"
     ? `<details class="book-nav"${["books", "poetry", "prose", "autofiction"].includes(key) ? " open" : ""}><summary>${route[locale].label}</summary><div class="book-subnav"><a href="${route[locale].path}">${strings.allBooksLabel}</a>${strings.bookCategories.map((category) => `<a href="${routeFor(category.route, locale).path}">${category.label}</a>`).join("")}</div></details>`
     : `<a class="${route.key === "contact" ? "nav-cta" : ""}" href="${route[locale].path}"${route[locale].path === activePath ? ` aria-current="page"` : ""}>${route[locale].label}</a>`).join("");
-  return `<body>
+  return `<body data-page="${key}">
   <a class="skip-link" href="#main">${strings.skip}</a>
   <header class="site-header" data-header>
     <a class="wordmark" href="${routeFor("home", locale).path}" aria-label="${strings.homeLabel}">
-      <span>Katarzyna</span><span>Klau Michalczak</span>
+      <span>Katarzyna</span> <span>Klau Michalczak</span>
     </a>
     <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
       <span class="menu-label">${strings.menu}</span><span class="menu-glyph" aria-hidden="true"></span>
@@ -353,7 +354,8 @@ function footer(locale) {
     <p class="footer-name">Katarzyna<br>Klau Michalczak</p>
     <p class="footer-role">${strings.role}</p>
     <nav aria-label="${strings.footerNav}">${routeDefinitions.filter((route) => !route.hidden && route.key !== "workshops").map((route) => `<a href="${route[locale].path}">${route[locale].label}</a>`).join("")}</nav>
-    <div class="footer-contacts"><a class="footer-email" data-contact-email="6b617369612e6d696368616c637a616b40676d61696c2e636f6d" href="${routeFor("contact", locale).path}">${locale === "pl" ? "Napisz" : locale === "en" ? "Email" : "Correo"}</a><a href="https://www.instagram.com/katarzyna.klau.michalczak/" rel="me">${strings.instagram}</a></div>
+    <div class="footer-contacts"><a class="footer-email" href="mailto:${contactEmail}">${contactEmail}</a><a href="https://www.instagram.com/katarzyna.klau.michalczak/" rel="me">${strings.instagram}</a></div>
+    <p class="photo-credits">${locale === "pl" ? "Zdjęcia: Tomasz Nalewajk, Justyna Lazizi oraz archiwum prywatne." : locale === "en" ? "Photography: Tomasz Nalewajk, Justyna Lazizi and private archive." : "Fotografías: Tomasz Nalewajk, Justyna Lazizi y archivo privado."}</p>
     <p class="footer-meta">© ${new Date().getFullYear()} Katarzyna Klau Michalczak</p>
   </footer>
   <script src="/main.js" defer></script>
@@ -370,9 +372,8 @@ function layout(key, locale, content, schema, siteUrl) {
     sameAs: authorProfiles,
     url: siteUrl || undefined
   };
-  return `${head(key, locale, siteUrl)}
-<script type="application/ld+json">${JSON.stringify(person).replaceAll("<", "\\u003c")}</script>
-${schema ? `<script type="application/ld+json">${JSON.stringify(schema).replaceAll("<", "\\u003c")}</script>` : ""}
+  const structuredData = [person, schema].filter(Boolean).map((item) => `<script type="application/ld+json">${JSON.stringify(item).replaceAll("<", "\\u003c")}</script>`).join("\n");
+  return `${head(key, locale, siteUrl).replace("</head>", `${structuredData}\n</head>`)}
 ${header(key, locale)}
 <main id="main">${content}</main>
 ${footer(locale)}`;
@@ -424,7 +425,7 @@ function homePage(locale, siteUrl) {
   const content = `<section class="hero content-shell">
       <div class="hero-copy reveal">
         <p class="eyebrow">${strings.role}</p>
-        <h1><span>Katarzyna</span><span class="hero-klau">Klau</span><span>Michalczak</span></h1>
+        <h1><span>Katarzyna</span> <span class="hero-klau">Klau</span> <span>Michalczak</span></h1>
         <p class="hero-tagline">${strings.tagline}</p><p class="hero-punchline">${strings.punchline}</p>
         <div class="hero-actions"><a class="hero-button hero-button-primary" href="${routeFor("books", locale).path}">${strings.homeCtaBooks} ${arrow}</a><a class="hero-button" href="${routeFor("contact", locale).path}">${strings.homeCtaInvite} ${arrow}</a></div>
       </div>
@@ -558,17 +559,17 @@ function mediaPage(locale, siteUrl) {
   const strings = copy[locale];
   const unassigned = mediaGroups.find((group) => group.title === "Dobry Tytuł");
   const otherTitle = locale === "pl" ? "Wystąpienia" : locale === "en" ? "Appearances" : "Participaciones";
-  const otherAppearances = unassigned ? `<section class="media-group content-shell" id="wystapienia" aria-labelledby="media-${locale}-appearances"><div class="media-group-title reveal"><p class="eyebrow">${String(mediaGroups.filter((group) => group.title !== "Dobry Tytuł").length + 1).padStart(2, "0")}</p><h2 id="media-${locale}-appearances">${otherTitle}</h2></div><div class="media-items">${unassigned.items.map((item) => `<a class="media-item reveal" href="${item.url}" target="_blank" rel="noopener noreferrer"><span class="media-kind">${esc(item.kind[locale] || item.kind.pl)}</span><div><p class="media-source">${esc(item.source)}</p><h3${locale === "es" ? ` lang="pl"` : ""}>${esc(locale === "es" ? item.title.pl : item.title[locale] || item.title.pl)}</h3>${locale === "en" ? `<small class="original-title">${strings.originalTitle}: ${esc(item.title.pl)}</small>` : ""}</div>${arrow}<span class="sr-only">${strings.openNew}</span></a>`).join("")}</div></section>` : "";
+  const otherAppearances = unassigned ? `<section class="media-group content-shell" id="wystapienia" aria-labelledby="media-${locale}-appearances"><div class="media-group-title reveal"><p class="eyebrow">${String(mediaGroups.filter((group) => group.title !== "Dobry Tytuł").length + 1).padStart(2, "0")}</p><h2 id="media-${locale}-appearances">${otherTitle}</h2></div><div class="media-items">${unassigned.items.map((item) => `<a class="media-item reveal" href="${item.url}" target="_blank" rel="noopener noreferrer"><span class="media-kind">${esc(locale === "es" ? "programa" : item.kind[locale])}</span><div><p class="media-source">${esc(item.source)}</p><h3${locale === "es" ? ` lang="pl"` : ""}>${esc(locale === "es" ? item.title.pl : item.title[locale] || item.title.pl)}</h3>${locale === "en" ? `<small class="original-title">${strings.originalTitle}: ${esc(item.title.pl)}</small>` : ""}</div>${arrow}<span class="sr-only">${strings.openNew}</span></a>`).join("")}</div></section>` : "";
   const groups = mediaGroups.filter((group) => group.title !== "Dobry Tytuł").map((group, groupIndex) => {
     const groupId = toId(group.title);
-    const reviews = (bookCopy[group.title]?.quotes || []).map((quote) => `<blockquote class="media-quote"${quote.author === "Joanna Mueller" || locale !== "pl" ? ` lang="pl"` : ""}>${esc(quote.text[locale])}<cite>— ${esc(quote.author)}${quote.source ? ` · ${esc(quote.source)}` : ""}</cite></blockquote>`).join("");
+    const reviews = (bookCopy[group.title]?.quotes || []).map((quote) => `<blockquote class="media-quote"${quote.author === "Joanna Mueller" ? ` lang="pl"` : ""}>${esc(quote.text[locale])}<cite>— ${esc(quote.author)}${quote.source ? ` · ${esc(quote.source)}` : ""}</cite></blockquote>`).join("");
     return `<section class="media-group content-shell" id="${groupId}" aria-labelledby="media-${locale}-${groupIndex}">
       <div class="media-group-title reveal"><p class="eyebrow">${String(groupIndex + 1).padStart(2, "0")}</p><h2 id="media-${locale}-${groupIndex}">${esc(group.title)}</h2></div>
       <div class="media-items">${reviews}${group.items.map((item) => {
-        const description = item.description ? `<p>${esc(item.description[locale] || item.description.en || item.description.pl)}</p>` : "";
+        const description = item.description ? `<p>${esc(item.description[locale])}</p>` : "";
         const original = locale === "en" ? `<small class="original-title">${strings.originalTitle}: ${esc(item.title.pl)}</small>` : "";
         const itemTitle = locale === "es" ? item.title.pl : item.title[locale] || item.title.pl;
-        const itemKind = locale === "es" ? ({ wywiad: "entrevista", recenzja: "reseña", wideo: "vídeo", podcast: "podcast", radio: "radio", program: "programa" }[item.kind.pl] || item.kind.pl) : item.kind[locale] || item.kind.pl;
+        const itemKind = locale === "es" ? ({ wywiad: "entrevista", recenzja: "reseña", wideo: "vídeo", podcast: "podcast", radio: "radio", program: "programa", prasa: "prensa" }[item.kind.pl] || item.kind.pl) : item.kind[locale] || item.kind.pl;
         const body = `<span class="media-kind">${esc(itemKind)}</span><div><p class="media-source">${esc(item.source)}</p><h3${locale === "es" ? ` lang="pl"` : ""}>${esc(itemTitle)}</h3>${original}${description}</div>${arrow}`;
         return `<a class="media-item reveal" href="${item.url}" target="_blank" rel="noopener noreferrer">${body}<span class="sr-only">${strings.openNew}</span></a>`;
       }).join("")}</div>
@@ -581,17 +582,17 @@ function mediaPage(locale, siteUrl) {
       ? "Katarzyna Klau Michalczak (born 1981) is a Polish poet and writer with a PhD in sociology. She has published eight books: poetry collections, volumes of short stories, the novel “Zwiezda” (2025) and auto-non-fiction, including “Synu, jesteś kotem”. She has been shortlisted for the Gdynia Literary Prize and the KOS Poetry Prize, and is a member of Unia Literacka, the Polish writers’ union."
       : "Katarzyna Klau Michalczak (n. 1981) es una poeta y escritora polaca, doctora en sociología. Ha publicado ocho libros: poemarios, libros de relatos, la novela “Zwiezda” (2025) y auto-non-fiction, entre ellos “Synu, jesteś kotem”. Ha sido finalista del Premio Literario Gdynia y del Premio de Poesía KOS. Es miembro de Unia Literacka, la unión de escritoras y escritores de Polonia.";
   const photoLabel = locale === "pl" ? "Zdjęcie do pobrania" : locale === "en" ? "Download portrait" : "Descargar retrato";
-  const pressPhotos = [portraits[2], portraits[4]].map((portrait, index) => `<figure class="press-photo"><a href="${portrait.src}" download="katarzyna-michalczak-portrait-${index + 1}.jpg"><img src="${portrait.src}" alt="${esc(portrait.alt[locale] || portrait.alt.en)}" width="${portrait.width}" height="${portrait.height}" loading="lazy" decoding="async"><span>${photoLabel} ${arrow}</span></a></figure>`).join("");
+  const pressPhotos = [portraits[2], portraits[4]].map((portrait, index) => `<figure class="press-photo"><a href="${portrait.src}" download="katarzyna-michalczak-portrait-${index + 1}.jpg"><img src="${portrait.src}" alt="${esc(portrait.alt[locale])}" width="${portrait.width}" height="${portrait.height}" loading="lazy" decoding="async"><span>${photoLabel} ${arrow}</span></a><figcaption>${index === 0 ? "Justyna Lazizi" : locale === "pl" ? "Archiwum prywatne" : locale === "en" ? "Private archive" : "Archivo privado"}</figcaption></figure>`).join("");
   const pressContact = locale === "pl" ? "Kontakt dla mediów" : locale === "en" ? "Press contact" : "Contacto de prensa";
-  const encodedEmail = "6b617369612e6d696368616c637a616b40676d61696c2e636f6d";
-  const press = `<section class="press-kit content-shell"><p class="eyebrow">${pressTitle}</p><h2>${pressTitle}</h2><p>${esc(shortBio)}</p><a class="text-link" href="${routeFor("about", locale).path}">${locale === "pl" ? "Pełne bio: O mnie" : locale === "en" ? "Full bio: About me" : "Biografía completa: Sobre mí"} ${arrow}</a><div class="press-photos" aria-label="${photoLabel}">${pressPhotos}</div><p class="press-contact"><span>${pressContact}:</span> <a data-contact-email="${encodedEmail}" href="${routeFor("contact", locale).path}">${locale === "pl" ? "Napisz" : locale === "en" ? "Email" : "Correo"}</a></p></section>`;
-  const mediaIntro = locale === "pl" ? "Rozmowy, recenzje i audycje o moich książkach. Dziennikarką lub organizatorką? Na dole strony znajdziesz bio." : locale === "en" ? "Interviews, reviews and broadcasts about my books. If you are a journalist or an organiser, you will find a bio at the bottom of this page." : "Entrevistas, reseñas y programas sobre mis libros. Si eres periodista u organizas eventos, al final de la página encontrarás una biografía.";
+  const press = `<section class="press-kit content-shell"><p class="eyebrow">${pressTitle}</p><h2>${pressTitle}</h2><p>${esc(shortBio)}</p><a class="text-link" href="${routeFor("about", locale).path}">${locale === "pl" ? "Pełne bio: O mnie" : locale === "en" ? "Full bio: About me" : "Biografía completa: Sobre mí"} ${arrow}</a><div class="press-photos" aria-label="${photoLabel}">${pressPhotos}</div><p class="press-contact"><span>${pressContact}:</span> <a href="mailto:${contactEmail}">${contactEmail}</a></p></section>`;
+  const mediaIntro = locale === "pl" ? "Rozmowy, recenzje i audycje o moich książkach. Szukasz materiałów prasowych? Na dole strony znajdziesz biografię i zdjęcia do pobrania." : locale === "en" ? "Interviews, reviews and broadcasts about my books. If you are a journalist or an organiser, you will find a bio at the bottom of this page." : "Entrevistas, reseñas y programas sobre mis libros. Si eres periodista u organizas eventos, al final de la página encontrarás una biografía.";
   return layout("media", locale, `${pageIntro(strings.mediaKicker, strings.mediaTitle, mediaIntro)}${groups}${otherAppearances}${press}`, null, siteUrl);
 }
 
 function contactPage(locale, siteUrl) {
   const strings = copy[locale];
   const schema = { "@context": "https://schema.org", "@type": "ContactPage", name: pageData[locale].contact.title, about: { "@type": "Person", name: "Katarzyna Klau Michalczak", alternateName: "Katarzyna Michalczak", sameAs: authorProfiles } };
+  const formStrings = contactCopy[locale];
   const sectionTitles = locale === "pl" ? ["Spotkania autorskie", "Warsztaty pisania", "Prelekcje i panele", "Gdzie byłam", "Praktycznie"] : locale === "en" ? ["Author meetings", "Writing workshops", "Talks and panels", "Where I have been", "Practical"] : ["Encuentros con lectoras y lectores", "Talleres de escritura", "Charlas y mesas redondas", "Dónde he estado", "Información práctica"];
   const places = locale === "pl" ? ["Rezydencje: Can Serrat (2017), Wyszehradzkie Rezydencje Literackie, Praga (2022)", "Warsztaty: Fundacja Ad Hoc, OK Brwinów, Grupa Światy", "Obozy feministyczne z Ulicą Siostrzaną", "Festiwal Literacki Sopot 2024: spotkanie wraz z Elizą Kącką wokół książek o relacji z dzieckiem, którego sposób widzenia świata wymyka się oczekiwaniom", "Spotkania wokół moich książek w latach 2023–2026: Wschowa, Gniezno, Milanówek, Galeria Zachęta w Warszawie"] : locale === "en" ? ["Residencies: Can Serrat (2017), Visegrad Literary Residency, Prague (2022)", "Workshops: Fundacja Ad Hoc, OK Brwinów, Grupa Światy", "Feminist camps with Ulica Siostrzana", "Sopot Literary Festival 2024: an event with Eliza Kącka on books about a relationship with a child whose way of seeing the world escapes expectations", "Events around my books, 2023 to 2026: Wschowa, Gniezno, Milanówek, Zachęta Gallery in Warsaw"] : ["Residencias: Can Serrat (2017), Residencia Literaria de Visegrado, Praga (2022)", "Talleres: Fundacja Ad Hoc, OK Brwinów, Grupa Światy", "Campamentos feministas con Ulica Siostrzana", "Festival Literario de Sopot 2024: encuentro junto a Eliza Kącka en torno a libros sobre la relación con un hijo cuya manera de ver el mundo escapa a las expectativas", "Encuentros en torno a mis libros entre 2023 y 2026: Wschowa, Gniezno, Milanówek, Galería Zachęta de Varsovia"];
   const content = `${pageIntro(strings.contactInvite, strings.contactTitle, strings.inviteIntro)}
@@ -603,16 +604,26 @@ function contactPage(locale, siteUrl) {
       <article><p class="eyebrow">${sectionTitles[4]}</p><p>${esc(strings.practical)}</p></article>
     </section>
     <section class="contact-layout content-shell">
-      <div class="contact-copy"><p>${esc(strings.replyTime)}</p><a class="contact-email" data-contact-email="6b617369612e6d696368616c637a616b40676d61696c2e636f6d" href="${routeFor("contact", locale).path}">${locale === "pl" ? "Adres e-mail" : locale === "en" ? "Email address" : "Correo electrónico"}</a><a class="text-link" href="${routeFor("media", locale).path}">${locale === "pl" ? "Materiały dla prasy" : locale === "en" ? "Press materials" : "Materiales de prensa"} ${arrow}</a></div>
-      <form class="contact-form" data-contact-form>
+      <div class="contact-copy"><p>${esc(strings.replyTime)}</p><a class="contact-email" href="mailto:${contactEmail}">${contactEmail}</a><a class="text-link" href="${routeFor("media", locale).path}">${locale === "pl" ? "Materiały dla prasy" : locale === "en" ? "Press materials" : "Materiales de prensa"} ${arrow}</a></div>
+      <form class="contact-form" data-contact-form data-email="${contactEmail}" data-subject="${strings.emailSubject}" data-copy-success="${formStrings.copied}" data-copy-failure="${formStrings.copyFailed}" hidden aria-describedby="contact-help">
+        <p class="contact-help" id="contact-help">${formStrings.help}</p>
         <label>${strings.name}<input name="name" autocomplete="name" required></label>
         <label>${strings.institution}<input name="institution" autocomplete="organization"></label>
-        <label>${strings.eventType}<select name="event" required><option value="" selected disabled>${locale === "pl" ? "Wybierz" : locale === "en" ? "Choose" : "Elige"}</option><option>${sectionTitles[0]}</option><option>${sectionTitles[1]}</option><option>${locale === "pl" ? "Panel" : locale === "en" ? "Panel" : "Mesa redonda"}</option><option>${sectionTitles[2]}</option></select></label>
+        <label>${strings.eventType}<select name="event" required><option value="" selected disabled>${locale === "pl" ? "Wybierz" : locale === "en" ? "Choose" : "Elige"}</option><option>${sectionTitles[0]}</option><option>${sectionTitles[1]}</option><option>${sectionTitles[2]}</option></select></label>
         <label>${strings.date}<input name="date" type="date"></label>
         <label>${strings.place}<input name="place" autocomplete="address-level2"></label>
         <label>${strings.message}<textarea name="message" rows="5" required></textarea></label>
         <button class="contact-submit" type="submit">${strings.sendRequest} ${arrow}</button>
+        <section class="message-preview" data-message-preview hidden aria-labelledby="message-preview-title">
+          <h2 id="message-preview-title">${formStrings.ready}</h2>
+          <p>${formStrings.instructions}</p>
+          <label for="prepared-message">${formStrings.messageLabel}</label>
+          <textarea id="prepared-message" data-prepared-message rows="12" readonly></textarea>
+          <div class="message-actions"><button type="button" class="contact-submit" data-copy-message>${formStrings.copy}</button><a class="text-link" data-open-email href="mailto:${contactEmail}">${formStrings.open}</a></div>
+          <p class="message-status" data-message-status role="status" aria-live="polite"></p>
+        </section>
       </form>
+      <noscript><p>${formStrings.noScript} <a href="mailto:${contactEmail}">${contactEmail}</a></p></noscript>
     </section>`;
   return layout("contact", locale, content, schema, siteUrl);
 }
@@ -635,13 +646,16 @@ function outputPath(routePath) {
   return routePath === "/" ? "index.html" : `${routePath.replace(/^\//, "")}index.html`;
 }
 
-export const allRoutes = routeDefinitions.flatMap((route) => [route.pl.path, route.en.path, route.es.path]);
+export const redirects = routeDefinitions.filter((route) => route.redirectTo).flatMap((route) => ["pl", "en", "es"].map((locale) => ({ source: route[locale].path, destination: routeFor(route.redirectTo, locale).path })));
+
+export const allRoutes = routeDefinitions.filter((route) => !route.redirectTo).flatMap((route) => [route.pl.path, route.en.path, route.es.path]);
 
 export function renderPages(siteUrl = "") {
   const pages = new Map();
   for (const locale of ["pl", "en", "es"]) {
-    for (const route of routeDefinitions) {
-      pages.set(outputPath(route[locale].path), pageRenderers[route.key](locale, siteUrl));
+    for (const route of routeDefinitions.filter((route) => !route.redirectTo)) {
+      const html = pageRenderers[route.key](locale, siteUrl);
+      pages.set(outputPath(route[locale].path), locale === "es" ? html.replaceAll("„", "“") : html);
     }
   }
   return pages;

@@ -76,7 +76,7 @@ export const books = [
   {
     title: "Pamięć przyjęć",
     category: "poetry",
-    year: "",
+    year: "2017",
     details: { pl: "tom poetycki · Dom Literatury w Łodzi", en: "poetry collection · Dom Literatury in Łódź", es: "poemario · Dom Literatury w Łodzi" },
     image: "/images/book-pamiec-przyjec.jpg",
     width: 632,
@@ -127,7 +127,7 @@ export const books = [
     title: "śń",
     category: "poetry",
     year: "2023",
-    details: { pl: "tom poetycki · Wydawnictwo j", en: "poetry collection · Wydawnictwo j", es: "poemario · Wydawnictwo j" },
+    details: { pl: "tom poetycki · Wydawnictwo J", en: "poetry collection · Wydawnictwo J", es: "poemario · Wydawnictwo J" },
     image: "/images/book-sn.jpg",
     width: 1200,
     height: 797
@@ -189,7 +189,7 @@ export const bookCopy = {
       pl: "Trzynaście opowiadań o kobietach na różnych etapach życia: od dziewczynek poznających świat po starsze bohaterki. O relacjach, których nie ma, a które bardzo chciałoby się mieć. Większość książki powstała w 2017 roku na rezydencji Can Serrat.",
       en: "Thirteen stories about women at different stages of life, from girls discovering the world to older characters. About the relationships we do not have and very much wish we did. Most of the book was written in 2017 at the Can Serrat residency.",
       es: "Trece relatos sobre mujeres en distintas etapas de la vida: desde niñas que descubren el mundo hasta personajes mayores. Sobre las relaciones que no existen y que tanto nos gustaría tener. La mayor parte del libro nació en 2017 en la residencia Can Serrat."
-    }, quotes: [], publisher: "https://wydawnictwocyranka.pl/pl/p/Klub-snow-ebook/43"
+    }, quotes: [], publisher: ""
   },
   "Tysiąc saun": {
     description: {
@@ -270,7 +270,7 @@ export const childrenCopy = {
 };
 
 export const guides = [
-  { year: "2025", title: "Przewodnik po Koleżankowaniu się", url: "https://sklep.kosmosdladziewczynek.pl/produkt/przewodnik-po-kolezankowaniu-sie-o-przyjazni-samotnosci" },
+  { year: "2025", title: "Przewodnik po koleżankowaniu się", url: "https://sklep.kosmosdladziewczynek.pl/produkt/przewodnik-po-kolezankowaniu-sie-o-przyjazni-samotnosci" },
   { year: "2026", title: "Przewodnik po dziewczyńskich grupkach", url: "https://sklep.kosmosdladziewczynek.pl/produkt/przewodnik-po-dziewczynskich-grupkach" }
 ];
 
@@ -305,7 +305,7 @@ export const mediaGroups = [
   {
     title: "Zwiezda",
     items: [
-      { title: { pl: "Rozmowa w Poranku RDC", en: "Interview on Poranek RDC" }, kind: { pl: "radio", en: "radio" }, source: "RDC", url: "https://www.rdc.pl/podcast/poranek-rdc_p3mbvmpmqgcjfCnE8K5O?episode=Zl31i14aeNr1iXSNobyB" },
+      { title: { pl: "Rozmowa w Poranku RDC", en: "Interview on Poranek RDC" }, kind: { pl: "radio", en: "radio" }, source: "RDC · 02.10.2025", url: "https://www.rdc.pl/podcast/poranek-rdc_p3mbvmpmqgcjfCnE8K5O?episode=Zl31i14aeNr1iXSNobyB" },
       { title: { pl: "Aleksandra Pakieła o książkach jesieni", en: "Aleksandra Pakieła on the season’s new books" }, kind: { pl: "prasa", en: "press" }, source: "Newsweek", url: "https://www.newsweek.pl/kultura/zyta-rudzka-jedrzej-morawiecki-i-katarzyna-michalczak-ksiazki-jesieni/9b21s62" },
       { title: { pl: "Marcin Zegadło o „Zwiezdzie”", en: "Marcin Zegadło on Zwiezda" }, kind: { pl: "recenzja", en: "review" }, source: "Księgozbiry", url: "https://www.facebook.com/photo/?fbid=1227574312748158&set=a.462720662566864" }
     ]
@@ -327,21 +327,21 @@ export const mediaGroups = [
       },
       {
         title: { pl: "Kochać to znaczy dbać", en: "To love means to care" },
-        description: { pl: "Rozmowa o książce, macierzyństwie i relacji z synem Radkiem.", en: "A conversation about the book, motherhood and the author’s relationship with her son, Radek." },
+        description: { pl: "Rozmowa o książce, macierzyństwie i relacji z synem Radkiem.", en: "A conversation about the book, motherhood and the author’s relationship with her son, Radek.", es: "Una conversación sobre el libro, la maternidad y la relación de la autora con su hijo Radek." },
         source: "Vogue Polska · 12.01.2023",
         kind: { pl: "wywiad", en: "interview" },
         url: "https://www.vogue.pl/a/katarzyna-michalczak-autorka-ksiazki-synu-jestes-kotem-o-swojej-re-lacji-z-synem-w-spektrum-autyzmu"
       },
       {
         title: { pl: "Miłość do dziecka w spektrum autyzmu trzeba wygrzebywać pazurami", en: "Love for an autistic child sometimes has to be clawed out" },
-        description: { pl: "Rozmowa opublikowana z okazji Światowego Dnia Świadomości Autyzmu.", en: "An interview published for World Autism Awareness Day." },
+        description: { pl: "Rozmowa opublikowana z okazji Światowego Dnia Świadomości Autyzmu.", en: "An interview published for World Autism Awareness Day.", es: "Una entrevista publicada con motivo del Día Mundial de Concienciación sobre el Autismo." },
         source: "Zwierciadło",
         kind: { pl: "wywiad", en: "interview" },
         url: "https://zwierciadlo.pl/spotkania/532742"
       },
       {
         title: { pl: "BABA BOOK: Katarzyna Michalczak — „Synu, jesteś kotem”", en: "BABA BOOK: Katarzyna Michalczak — Synu, jesteś kotem" },
-        description: { pl: "Rozmowa na żywo z autorką.", en: "A live conversation with the author." },
+        description: { pl: "Rozmowa na żywo z autorką.", en: "A live conversation with the author.", es: "Una conversación en directo con la autora." },
         source: "YouTube · Baba od polskiego · 08.2023",
         kind: { pl: "wideo", en: "video" },
         url: "https://youtube.com/watch?v=o2GlN9LEMxo"
@@ -354,7 +354,7 @@ export const mediaGroups = [
       },
       {
         title: { pl: "Książki. Magazyn do słuchania", en: "Książki: an audio magazine" },
-        description: { pl: "Rozmowa z Michałem Nogasiem.", en: "A conversation with Michał Nogaś." },
+        description: { pl: "Rozmowa z Michałem Nogasiem.", en: "A conversation with Michał Nogaś.", es: "Una conversación con Michał Nogaś." },
         source: "YouTube · Gazeta Wyborcza · 02.2023",
         kind: { pl: "wideo", en: "video" },
         url: "https://youtube.com/watch?v=D_Faql4taV4"
@@ -376,9 +376,9 @@ export const mediaGroups = [
 ];
 
 export const portraits = [
-  { src: "/images/portrait-katarzyna-new.jpg", alt: { pl: "Czarno-biały portret Katarzyny Klau Michalczak", en: "Black-and-white portrait of Katarzyna Klau Michalczak" }, width: 480, height: 640 },
-  { src: "/images/portrait-tomasz-nalewajk-1.jpg", alt: { pl: "Katarzyna Klau Michalczak podczas gotowania w lesie", en: "Katarzyna Klau Michalczak cooking in a forest" }, width: 452, height: 640 },
-  { src: "/images/portrait-justyna-lazizi.jpg", alt: { pl: "Roześmiana Katarzyna Klau Michalczak", en: "Katarzyna Klau Michalczak laughing" }, width: 1536, height: 2048 },
-  { src: "/images/portrait-tomasz-nalewajk-2.jpg", alt: { pl: "Katarzyna Klau Michalczak odpoczywająca na plaży", en: "Katarzyna Klau Michalczak resting on a beach" }, width: 480, height: 640 },
-  { src: "/images/portrait-archiwum-prywatne.jpg", alt: { pl: "Czarno-biały portret Katarzyny Klau Michalczak", en: "Black-and-white portrait of Katarzyna Klau Michalczak" }, width: 1536, height: 2048 }
+  { src: "/images/portrait-katarzyna-new.jpg", alt: { pl: "Czarno-biały portret Katarzyny Klau Michalczak", en: "Black-and-white portrait of Katarzyna Klau Michalczak", es: "Retrato en blanco y negro de Katarzyna Klau Michalczak" }, width: 480, height: 640 },
+  { src: "/images/portrait-tomasz-nalewajk-1.jpg", alt: { pl: "Katarzyna Klau Michalczak podczas gotowania w lesie", en: "Katarzyna Klau Michalczak cooking in a forest", es: "Katarzyna Klau Michalczak cocinando en un bosque" }, width: 452, height: 640 },
+  { src: "/images/portrait-justyna-lazizi.jpg", alt: { pl: "Roześmiana Katarzyna Klau Michalczak", en: "Katarzyna Klau Michalczak laughing", es: "Katarzyna Klau Michalczak riendo" }, width: 1536, height: 2048 },
+  { src: "/images/portrait-tomasz-nalewajk-2.jpg", alt: { pl: "Katarzyna Klau Michalczak odpoczywająca na plaży", en: "Katarzyna Klau Michalczak resting on a beach", es: "Katarzyna Klau Michalczak descansando en una playa" }, width: 480, height: 640 },
+  { src: "/images/portrait-archiwum-prywatne.jpg", alt: { pl: "Czarno-biały portret Katarzyny Klau Michalczak", en: "Black-and-white portrait of Katarzyna Klau Michalczak", es: "Retrato en blanco y negro de Katarzyna Klau Michalczak" }, width: 1536, height: 2048 }
 ];

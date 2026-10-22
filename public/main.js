@@ -1,20 +1,43 @@
+document.documentElement.classList.add("js");
+
 const menuButton = document.querySelector(".menu-button");
 const navigation = document.querySelector(".site-nav");
 
-for (const link of document.querySelectorAll("[data-contact-email]")) {
-  const email = link.dataset.contactEmail.match(/.{2}/g).map((pair) => String.fromCharCode(Number.parseInt(pair, 16))).join("");
-  link.href = `mailto:${email}`;
-  if (link.classList.contains("contact-email")) link.textContent = email;
-}
+const contactForm = document.querySelector("[data-contact-form]");
+contactForm?.removeAttribute("hidden");
 
-document.querySelector("[data-contact-form]")?.addEventListener("submit", (event) => {
+contactForm?.addEventListener("submit", (event) => {
   event.preventDefault();
   const form = event.currentTarget;
-  const email = document.querySelector("[data-contact-email]").dataset.contactEmail.match(/.{2}/g).map((pair) => String.fromCharCode(Number.parseInt(pair, 16))).join("");
+  if (!form.reportValidity()) return;
+  const email = form.dataset.email;
+  const subject = form.dataset.subject;
   const values = new FormData(form);
-  const message = [...values.entries()].map(([key, value]) => `${key}: ${value}`).join("\n");
-  const subject = document.documentElement.lang === "pl" ? "Zaproszenie do współpracy" : document.documentElement.lang === "es" ? "Invitación a colaborar" : "Invitation to collaborate";
-  window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+  const body = [...values.entries()].filter(([, value]) => String(value).trim()).map(([key, value]) => {
+    const input = form.elements.namedItem(key);
+    const label = input.labels[0].firstChild.textContent.trim();
+    return `${label}: ${String(value).trim()}`;
+  }).join("\n\n");
+  const preview = form.querySelector("[data-message-preview]");
+  const message = form.querySelector("[data-prepared-message]");
+  message.value = `${email}\n${subject}\n\n${body}`;
+  form.querySelector("[data-open-email]").href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  form.querySelector("[data-message-status]").textContent = "";
+  preview.hidden = false;
+  message.focus();
+});
+
+document.querySelector("[data-copy-message]")?.addEventListener("click", async () => {
+  const message = contactForm.querySelector("[data-prepared-message]");
+  const status = contactForm.querySelector("[data-message-status]");
+  try {
+    await navigator.clipboard.writeText(message.value);
+    status.textContent = contactForm.dataset.copySuccess;
+  } catch {
+    message.focus();
+    message.select();
+    status.textContent = contactForm.dataset.copyFailure;
+  }
 });
 
 const quoteCards = [...document.querySelectorAll("[data-quote-card]")];
@@ -39,6 +62,7 @@ function closeMenu() {
   if (!menuButton || !navigation) return;
   menuButton.setAttribute("aria-expanded", "false");
   navigation.classList.remove("is-open");
+  navigation.querySelectorAll("details[open]").forEach((details) => details.removeAttribute("open"));
 }
 
 menuButton?.addEventListener("click", () => {
@@ -52,7 +76,10 @@ navigation?.addEventListener("click", (event) => {
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeMenu();
+  if (event.key === "Escape" && navigation?.classList.contains("is-open")) {
+    closeMenu();
+    menuButton.focus();
+  }
 });
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

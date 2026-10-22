@@ -1,8 +1,13 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "npm run build && npm run check",
   "outputDirectory": "dist",
   "cleanUrls": true,
-  "trailingSlash": false,
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/warsztaty", "destination": "/kontakt/", "permanent": true },
+    { "source": "/en/workshops", "destination": "/en/work-with-me/", "permanent": true },
+    { "source": "/es/talleres", "destination": "/es/colaboraciones/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/images/(.*)",

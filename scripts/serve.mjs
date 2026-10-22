@@ -2,12 +2,18 @@ import { createReadStream, statSync } from "node:fs";
 import http from "node:http";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { redirects } from "../src/site.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "dist");
 const types = { ".css": "text/css", ".js": "text/javascript", ".svg": "image/svg+xml", ".jpg": "image/jpeg", ".webmanifest": "application/manifest+json", ".xml": "application/xml" };
 
 const server = http.createServer((request, response) => {
   const pathname = decodeURIComponent(new URL(request.url, "http://localhost").pathname);
+  const redirect = redirects.find(({ source }) => source.replace(/\/$/, "") === pathname.replace(/\/$/, ""));
+  if (redirect) {
+    response.writeHead(308, { Location: redirect.destination }).end();
+    return;
+  }
   let target = path.join(root, pathname);
   try {
     if (statSync(target).isDirectory()) target = path.join(target, "index.html");
