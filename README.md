@@ -10,10 +10,11 @@ Wymagany jest Node.js 20 lub nowszy.
 npm run build
 npm run check
 npm run check:links
+npm run check:live
 npm run dev
 ```
 
-Podgląd lokalny działa pod adresem `http://127.0.0.1:4173`. Kontrola linków wymaga połączenia z internetem.
+Podgląd lokalny działa pod adresem `http://127.0.0.1:4173`. Kontrole linków wymagają połączenia z internetem. `check:live` sprawdza opublikowane strony, wewnętrzne odnośniki i sekcje, pliki, przekierowania oraz adresy SEO; `QA_BASE` pozwala wskazać inny adres produkcyjny.
 
 ### Kontrola w przeglądarce
 
