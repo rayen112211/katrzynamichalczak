@@ -23,7 +23,7 @@ Przy uruchomionym podglądzie `npm run check:browser` sprawdza wszystkie 30 stro
 
 Vercel buduje wszystkie 30 stron i uruchamia kontrolę przed publikacją. Każda strona korzysta z tego samego nagłówka, stopki i wersjonowanych plików CSS/JS. Stare adresy warsztatów przekierowują na stronę zaproszeń w odpowiednim języku.
 
-Docelowy adres to `https://www.katarzynaklaumichalczak.pl`. Domena bez `www` przekierowuje na nią w Vercel; stary adres `katrzynamichalczak.vercel.app` przekierowuje na odpowiadającą stronę w nowej domenie. Produkcyjny `SITE_URL` musi mieć wartość `https://www.katarzynaklaumichalczak.pl`. Każdy build zawiera canonicale, Open Graph, hreflang PL/EN/ES oraz sitemapę. Po zmianie zmiennej środowiskowej należy ponownie wdrożyć produkcję.
+Docelowy adres to `https://www.katarzynaklaumichalczak.pl`. Domena bez `www` oraz stary adres `katrzynamichalczak.vercel.app` przekierowują na nią w ustawieniach domen projektu Vercel, zachowując ścieżkę. Produkcyjny `SITE_URL` musi mieć wartość `https://www.katarzynaklaumichalczak.pl`. Każdy build zawiera canonicale, Open Graph, hreflang PL/EN/ES oraz sitemapę. Po zmianie zmiennej środowiskowej należy ponownie wdrożyć produkcję.
 
 ## Kontakt
 
