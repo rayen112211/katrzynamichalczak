@@ -236,7 +236,7 @@ const pageData = {
   es: {
     home: { title: "Katarzyna Klau Michalczak — poeta y escritora", description: "Katarzyna Klau Michalczak (Katarzyna Michalczak): poeta y escritora polaca, autora de ‘Zwiezda’ y ‘Synu, jesteś kotem’. Encuentros, talleres y mesas redondas." },
     about: { title: "Sobre mí — Katarzyna Klau Michalczak", description: "Poeta, escritora, doctora en sociología. Ocho libros, finalista del Premio Literario Gdynia y del Premio de Poesía KOS." },
-    books: { title: "Libros — Katarzyna Klau Michalczak", description: "Poemarios de Katarzyna Michalczak: ‘Pamięć przyjęć’, ‘Tysiąc saun’, ‘śń’." },
+    books: { title: "Libros — Katarzyna Klau Michalczak", description: "Poesía, relatos y prosa de Katarzyna Klau Michalczak, desde ‘Pamięć przyjęć’ hasta ‘Zwiezda’." },
     poetry: { title: "Poesía — Katarzyna Klau Michalczak", description: "Poemarios de Katarzyna Michalczak: ‘Pamięć przyjęć’, ‘Tysiąc saun’, ‘śń’." },
     prose: { title: "Prosa — Katarzyna Klau Michalczak", description: "La novela ‘Zwiezda’ y los relatos de Katarzyna Michalczak: ‘Klub snów’, ‘Mam na imię nie mam’." },
     autofiction: { title: "Auto-non-fiction — Katarzyna Klau Michalczak", description: "‘Synu, jesteś kotem’ y ‘Gdzie zgłosić dzikie zwierzę’: libros sobre maternidad y TDAH." },

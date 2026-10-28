@@ -23,7 +23,7 @@ Przy uruchomionym podglądzie `npm run check:browser` sprawdza wszystkie 30 stro
 
 Vercel buduje wszystkie 30 stron i uruchamia kontrolę przed publikacją. Każda strona korzysta z tego samego nagłówka, stopki i wersjonowanych plików CSS/JS. Stare adresy warsztatów przekierowują na stronę zaproszeń w odpowiednim języku.
 
-Adres SEO pochodzi kolejno z `SITE_URL`, `VERCEL_PROJECT_PRODUCTION_URL` lub obecnego `https://katrzynamichalczak.vercel.app`. Każdy build zawiera canonicale, Open Graph, hreflang PL/EN/ES oraz sitemapę. Po potwierdzeniu docelowej domeny należy podłączyć ją w Vercel, ustawić `SITE_URL` na jej origin, przebudować stronę i skonfigurować przekierowanie starej domeny z zachowaniem ścieżek. Nie ustawiaj niepotwierdzonej domeny.
+Docelowy adres to `https://www.katarzynaklaumichalczak.pl`. Domena bez `www` przekierowuje na nią w Vercel; stary adres `katrzynamichalczak.vercel.app` przekierowuje na odpowiadającą stronę w nowej domenie. Produkcyjny `SITE_URL` musi mieć wartość `https://www.katarzynaklaumichalczak.pl`. Każdy build zawiera canonicale, Open Graph, hreflang PL/EN/ES oraz sitemapę. Po zmianie zmiennej środowiskowej należy ponownie wdrożyć produkcję.
 
 ## Kontakt
 
@@ -31,7 +31,7 @@ Adres e-mail jest widoczny i działa bez JavaScript. Formularz przygotowuje wiad
 
 ## Materiały oczekujące
 
-Zgodnie z wiadomością autorki z 21 października 2026: docelowa domena; daty materiałów TVP, Newsweek, Wysokie Obcasy i ADHDziewczyny; ewentualny link do recenzji Marcina Zegadły poza Facebookiem; rok i tytuł książki związanej z nagrodą Złoty Środek. Przycisk wydawcy przy „Klubie snów” jest ukryty do potwierdzenia działającej strony produktu.
+Zgodnie z wiadomością autorki z 21 października 2026: daty materiałów TVP, Newsweek, Wysokie Obcasy i ADHDziewczyny; ewentualny link do recenzji Marcina Zegadły poza Facebookiem; rok i tytuł książki związanej z nagrodą Złoty Środek. Przycisk wydawcy przy „Klubie snów” jest ukryty do potwierdzenia działającej strony produktu.
 
 ## Treści i zdjęcia
 
