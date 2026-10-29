@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#922e35"/>
+  <circle cx="1035" cy="310" r="297" fill="none" stroke="#f2ede4" stroke-opacity=".45" stroke-width="1.5"/>
+  <circle cx="1035" cy="310" r="240" fill="none" stroke="#f2ede4" stroke-opacity=".72" stroke-width="1.5"/>
+  <circle cx="1035" cy="310" r="184" fill="none" stroke="#e8ae35" stroke-width="8" stroke-dasharray="3 28" stroke-linecap="round"/>
+  <path d="M762 0V630M772 0V630" stroke="#f2ede4" stroke-opacity=".25"/>
+  <path d="M80 95h62" stroke="#e8ae35" stroke-width="5"/>
+  <text x="80" y="137" fill="#f2ede4" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="5">POETKA · PISARKA</text>
+  <text x="72" y="280" fill="#f2ede4" font-family="Georgia, 'Times New Roman', serif" font-size="106" letter-spacing="-6">Katarzyna</text>
+  <text x="76" y="390" fill="#e8ae35" font-family="Georgia, 'Times New Roman', serif" font-size="112" font-style="italic" letter-spacing="-6">Klau</text>
+  <text x="72" y="495" fill="#f2ede4" font-family="Georgia, 'Times New Roman', serif" font-size="94" letter-spacing="-6" textLength="655" lengthAdjust="spacingAndGlyphs">Michalczak</text>
+  <path d="M80 545h612" stroke="#f2ede4" stroke-opacity=".38"/>
+  <text x="80" y="585" fill="#f2ede4" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">POEZJA  ·  PROZA  ·  OPOWIADANIA</text>
+  <text x="1035" y="375" fill="#f2ede4" font-family="Georgia, 'Times New Roman', serif" font-size="205" font-weight="700" text-anchor="middle">K</text>
+</svg>

@@ -26,6 +26,10 @@ for (const route of allRoutes) {
   pages.set(route, html);
   if (!html.includes(`rel="canonical" href="${base.origin}${route}"`)) errors.push(`${route}: wrong canonical URL`);
   if (!html.includes(`property="og:url" content="${base.origin}${route}"`)) errors.push(`${route}: wrong social URL`);
+  const suffix = route.startsWith("/en/") ? "-en" : route.startsWith("/es/") ? "-es" : "";
+  for (const tag of [`property="og:image" content="${base.origin}/social-preview${suffix}.png"`, `name="twitter:image" content="${base.origin}/social-preview${suffix}.png"`, `name="twitter:card" content="summary_large_image"`]) {
+    if (!html.includes(tag)) errors.push(`${route}: missing social preview tag ${tag}`);
+  }
   for (const language of ["pl", "en", "es", "x-default"]) {
     if (!html.includes(`hreflang="${language}"`)) errors.push(`${route}: missing ${language} alternate`);
   }
@@ -50,6 +54,11 @@ for (const [route, html] of pages) {
     const response = await get(asset);
     if (response.status !== 200) errors.push(`${route}: asset ${asset} returned HTTP ${response.status}`);
   }
+}
+
+for (const asset of ["/social-preview.png", "/social-preview-en.png", "/social-preview-es.png", "/favicon.svg", "/favicon-32.png", "/favicon.ico", "/apple-touch-icon.png", "/icon-192.png", "/icon-512.png", "/site.webmanifest"]) {
+  const response = await get(asset);
+  if (response.status !== 200) errors.push(`${asset}: HTTP ${response.status}`);
 }
 
 for (const { source, destination } of redirects) {

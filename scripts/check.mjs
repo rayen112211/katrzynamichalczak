@@ -50,6 +50,17 @@ for (const file of (await walk(output)).filter((item) => item.endsWith(".html"))
   if (!/class="nav-cta"/.test(html) || !/class="photo-credits"/.test(html)) errors.push(`${relative}: missing shared navigation or photo credits`);
   if (!html.includes('href="mailto:kasia.michalczak@gmail.com"')) errors.push(`${relative}: missing working email link`);
   if (!/property="og:image:alt" content="[^"]+"/.test(html)) errors.push(`${relative}: missing social image description`);
+  const socialImage = `${siteUrl}/social-preview${expectedLanguage === "pl" ? "" : `-${expectedLanguage}`}.png`;
+  for (const [property, value] of [["og:image", socialImage], ["og:image:width", "1200"], ["og:image:height", "630"], ["og:image:type", "image/png"]]) {
+    if (!html.includes(`property="${property}" content="${value}"`)) errors.push(`${relative}: incorrect ${property}`);
+  }
+  for (const [name, value] of [["twitter:card", "summary_large_image"], ["twitter:image", socialImage]]) {
+    if (!html.includes(`name="${name}" content="${value}"`)) errors.push(`${relative}: incorrect ${name}`);
+  }
+  for (const asset of ["/favicon.svg", "/favicon-32.png", "/favicon.ico", "/apple-touch-icon.png", "/site.webmanifest"]) {
+    if (!html.includes(`href="${asset}"`)) errors.push(`${relative}: missing icon reference ${asset}`);
+  }
+  if (html.includes(".vercel.app")) errors.push(`${relative}: old preview domain found in metadata`);
   const version = html.match(/name="build-version" content="([^"]+)"/)?.[1];
   if (!version) errors.push(`${relative}: missing build version`);
   else versions.add(version);
@@ -86,6 +97,16 @@ for (const file of (await walk(output)).filter((item) => item.endsWith(".html"))
 }
 
 if (versions.size !== 1) errors.push("Generated pages do not share one build version");
+for (const [name, width, height] of [["social-preview.png", 1200, 630], ["social-preview-en.png", 1200, 630], ["social-preview-es.png", 1200, 630], ["favicon-32.png", 32, 32], ["apple-touch-icon.png", 180, 180], ["icon-192.png", 192, 192], ["icon-512.png", 512, 512]]) {
+  try {
+    const bytes = await readFile(path.join(output, name));
+    if (bytes.subarray(0, 8).toString("hex") !== "89504e470d0a1a0a" || bytes.readUInt32BE(16) !== width || bytes.readUInt32BE(20) !== height) errors.push(`${name}: invalid PNG or dimensions`);
+  } catch { errors.push(`${name}: missing PNG`); }
+}
+try { if ((await readFile(path.join(output, "favicon.ico"))).readUInt16LE(2) !== 1) errors.push("favicon.ico: invalid ICO"); }
+catch { errors.push("favicon.ico: missing ICO"); }
+const manifest = JSON.parse(await readFile(path.join(output, "site.webmanifest"), "utf8"));
+for (const icon of ["/favicon.svg", "/icon-192.png", "/icon-512.png"]) if (!manifest.icons.some((entry) => entry.src === icon)) errors.push(`Manifest missing ${icon}`);
 const sitemap = await readFile(path.join(output, "sitemap.xml"), "utf8");
 for (const route of allRoutes) {
   if (!sitemap.includes(`<loc>${siteUrl}${route}</loc>`)) errors.push(`Sitemap missing ${route}`);

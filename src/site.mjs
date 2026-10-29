@@ -269,9 +269,10 @@ function routeFor(key, locale) {
 }
 
 function imageFigure(portrait, className, locale) {
-  const priority = className.includes("hero-photo") ? `fetchpriority="high"` : `loading="lazy"`;
+  const hero = className.includes("hero-photo");
+  const priority = hero ? `loading="eager" fetchpriority="high" decoding="sync"` : `loading="lazy" decoding="async"`;
   return `<figure class="photo ${className}">
-    <img src="${portrait.src}" alt="${esc(portrait.alt[locale])}" width="${portrait.width}" height="${portrait.height}" ${priority} decoding="async">
+    <img src="${portrait.src}" alt="${esc(portrait.alt[locale])}" width="${portrait.width}" height="${portrait.height}" ${priority}>
   </figure>`;
 }
 
@@ -286,7 +287,7 @@ function head(key, locale, siteUrl) {
   const englishRoute = routeFor(key, "en");
   const spanishRoute = routeFor(key, "es");
   const canonical = siteUrl ? absoluteUrl(siteUrl, currentRoute.path) : "";
-  const socialImage = siteUrl ? `${siteUrl}/images/portrait-katarzyna-new.jpg` : "";
+  const socialImage = `${siteUrl}/social-preview${locale === "pl" ? "" : `-${locale}`}.png`;
   return `<!doctype html>
 <html lang="${locale}">
 <head>
@@ -295,7 +296,7 @@ function head(key, locale, siteUrl) {
   <title>${esc(meta.title)}</title>
   <meta name="description" content="${esc(meta.description)}">
   <meta name="author" content="Katarzyna Klau Michalczak">
-  <meta name="theme-color" content="#8d2d31">
+  <meta name="theme-color" content="#922e35">
   <meta name="robots" content="index, follow, max-image-preview:large">
   ${canonical ? `<link rel="canonical" href="${canonical}">` : ""}
   <link rel="alternate" hreflang="pl" href="${absoluteUrl(siteUrl, polishRoute.path)}">
@@ -303,16 +304,27 @@ function head(key, locale, siteUrl) {
   <link rel="alternate" hreflang="es" href="${absoluteUrl(siteUrl, spanishRoute.path)}">
   <link rel="alternate" hreflang="x-default" href="${absoluteUrl(siteUrl, polishRoute.path)}">
   <meta property="og:locale" content="${copy[locale].locale}">
+  ${["pl", "en", "es"].filter((language) => language !== locale).map((language) => `<meta property="og:locale:alternate" content="${copy[language].locale}">`).join("\n  ")}
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Katarzyna Klau Michalczak">
   <meta property="og:title" content="${esc(meta.title)}">
   <meta property="og:description" content="${esc(meta.description)}">
   ${canonical ? `<meta property="og:url" content="${canonical}">` : ""}
-  ${socialImage ? `<meta property="og:image" content="${socialImage}"><meta property="og:image:alt" content="${esc(portraits[0].alt[locale])}">` : ""}
+  <meta property="og:image" content="${socialImage}">
+  <meta property="og:image:secure_url" content="${socialImage}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Katarzyna Klau Michalczak">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${esc(meta.title)}">
   <meta name="twitter:description" content="${esc(meta.description)}">
+  <meta name="twitter:image" content="${socialImage}">
+  <meta name="twitter:image:alt" content="Katarzyna Klau Michalczak">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="/styles.css">
 </head>`;

@@ -9,6 +9,7 @@
     "check:links": "node scripts/check-links.mjs",
     "check:live": "node scripts/check-live.mjs",
     "check:browser": "node scripts/check-browser.cjs",
+    "check:safari": "node scripts/check-safari.cjs",
     "dev": "node scripts/serve.mjs"
   },
   "engines": {
