@@ -26,7 +26,7 @@ Vercel buduje wszystkie 30 stron i uruchamia kontrolę przed publikacją. Każda
 
 Docelowy adres to `https://www.katarzynaklaumichalczak.pl`. Domena bez `www` oraz dawny adres podglądu Vercel przekierowują na nią w ustawieniach domen projektu, zachowując ścieżkę. Produkcyjny `SITE_URL` ma wartość `https://www.katarzynaklaumichalczak.pl`; to również domyślny adres w kodzie. Każdy build zawiera canonicale, Open Graph i Twitter/X z obrazem 1200×630, hreflang PL/EN/ES oraz sitemapę. Po zmianie zmiennej środowiskowej należy ponownie wdrożyć produkcję.
 
-Źródła grafiki podglądu i ikony są w `assets/social-preview.svg` oraz `public/favicon.svg`. Obrazy PNG w trzech wersjach językowych, Apple touch icon i plik ICO zostały wygenerowane z tych źródeł przez `scripts/generate-brand-assets.cjs` z Playwright i Chrome.
+Źródła grafiki podglądu i ikony są w `assets/social-preview.svg` oraz `public/favicon.svg`. Obrazy PNG w trzech wersjach językowych, Apple touch icon, plik ICO i wersjonowana ikona Safari `favicon-k.svg` zostały wygenerowane z tych źródeł przez `scripts/generate-brand-assets.cjs` z Playwright i Chrome.
 
 ## Kontakt
 

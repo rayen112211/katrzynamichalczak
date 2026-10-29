@@ -50,13 +50,13 @@ for (const [route, html] of pages) {
       errors.push(`${route}: ${href} points to a missing section`);
     }
   }
-  for (const [, asset] of html.matchAll(/\b(?:src|href)="(\/(?:images\/[^"?]+|styles\.css(?:\?[^\"]*)?|main\.js(?:\?[^\"]*)?|favicon\.svg|site\.webmanifest))"/g)) {
+  for (const [, asset] of html.matchAll(/\b(?:src|href)="(\/(?:images\/[^"?]+|styles\.css(?:\?[^\"]*)?|main\.js(?:\?[^\"]*)?|favicon-k\.svg|site\.webmanifest))"/g)) {
     const response = await get(asset);
     if (response.status !== 200) errors.push(`${route}: asset ${asset} returned HTTP ${response.status}`);
   }
 }
 
-for (const asset of ["/social-preview.png", "/social-preview-en.png", "/social-preview-es.png", "/favicon.svg", "/favicon-32.png", "/favicon.ico", "/apple-touch-icon.png", "/icon-192.png", "/icon-512.png", "/site.webmanifest"]) {
+for (const asset of ["/social-preview.png", "/social-preview-en.png", "/social-preview-es.png", "/favicon-k.svg", "/favicon-32.png", "/favicon.ico", "/apple-touch-icon.png", "/icon-192.png", "/icon-512.png", "/site.webmanifest"]) {
   const response = await get(asset);
   if (response.status !== 200) errors.push(`${asset}: HTTP ${response.status}`);
 }

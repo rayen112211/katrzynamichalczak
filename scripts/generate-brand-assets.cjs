@@ -34,6 +34,7 @@ function icoFromPng(png) {
 async function main() {
   const icon = await readFile(path.join(root, "public", "favicon.svg"), "utf8");
   const social = await readFile(path.join(root, "assets", "social-preview.svg"), "utf8");
+  await writeFile(path.join(root, "public", "favicon-k.svg"), icon);
   const browser = await chromium.launch({ headless: true, channel: process.env.QA_CHANNEL || "chrome" });
   try {
     const icon32 = await renderSvg(browser, icon, 32, 32);

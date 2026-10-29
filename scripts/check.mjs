@@ -57,7 +57,7 @@ for (const file of (await walk(output)).filter((item) => item.endsWith(".html"))
   for (const [name, value] of [["twitter:card", "summary_large_image"], ["twitter:image", socialImage]]) {
     if (!html.includes(`name="${name}" content="${value}"`)) errors.push(`${relative}: incorrect ${name}`);
   }
-  for (const asset of ["/favicon.svg", "/favicon-32.png", "/favicon.ico", "/apple-touch-icon.png", "/site.webmanifest"]) {
+  for (const asset of ["/favicon-k.svg", "/favicon-32.png", "/favicon.ico", "/apple-touch-icon.png", "/site.webmanifest"]) {
     if (!html.includes(`href="${asset}"`)) errors.push(`${relative}: missing icon reference ${asset}`);
   }
   if (html.includes(".vercel.app")) errors.push(`${relative}: old preview domain found in metadata`);
@@ -106,7 +106,7 @@ for (const [name, width, height] of [["social-preview.png", 1200, 630], ["social
 try { if ((await readFile(path.join(output, "favicon.ico"))).readUInt16LE(2) !== 1) errors.push("favicon.ico: invalid ICO"); }
 catch { errors.push("favicon.ico: missing ICO"); }
 const manifest = JSON.parse(await readFile(path.join(output, "site.webmanifest"), "utf8"));
-for (const icon of ["/favicon.svg", "/icon-192.png", "/icon-512.png"]) if (!manifest.icons.some((entry) => entry.src === icon)) errors.push(`Manifest missing ${icon}`);
+for (const icon of ["/favicon-k.svg", "/icon-192.png", "/icon-512.png"]) if (!manifest.icons.some((entry) => entry.src === icon)) errors.push(`Manifest missing ${icon}`);
 const sitemap = await readFile(path.join(output, "sitemap.xml"), "utf8");
 for (const route of allRoutes) {
   if (!sitemap.includes(`<loc>${siteUrl}${route}</loc>`)) errors.push(`Sitemap missing ${route}`);
