@@ -56,7 +56,7 @@ for (const [route, html] of pages) {
   }
 }
 
-for (const asset of ["/social-preview.png", "/social-preview-en.png", "/social-preview-es.png", "/favicon-k.svg", "/favicon-32.png", "/favicon.ico", "/apple-touch-icon.png", "/icon-192.png", "/icon-512.png", "/site.webmanifest"]) {
+for (const asset of ["/social-preview.png", "/social-preview-en.png", "/social-preview-es.png", "/favicon-k.svg", "/favicon-32.png", "/favicon-96.png", "/favicon.ico", "/apple-touch-icon.png", "/icon-192.png", "/icon-512.png", "/site.webmanifest"]) {
   const response = await get(asset);
   if (response.status !== 200) errors.push(`${asset}: HTTP ${response.status}`);
 }

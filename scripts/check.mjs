@@ -57,7 +57,7 @@ for (const file of (await walk(output)).filter((item) => item.endsWith(".html"))
   for (const [name, value] of [["twitter:card", "summary_large_image"], ["twitter:image", socialImage]]) {
     if (!html.includes(`name="${name}" content="${value}"`)) errors.push(`${relative}: incorrect ${name}`);
   }
-  for (const asset of ["/favicon-k.svg", "/favicon-32.png", "/favicon.ico", "/apple-touch-icon.png", "/site.webmanifest"]) {
+  for (const asset of ["/favicon-k.svg", "/favicon-32.png", "/favicon-96.png", "/favicon.ico", "/apple-touch-icon.png", "/site.webmanifest"]) {
     if (!html.includes(`href="${asset}"`)) errors.push(`${relative}: missing icon reference ${asset}`);
   }
   if (html.includes(".vercel.app")) errors.push(`${relative}: old preview domain found in metadata`);
@@ -70,6 +70,9 @@ for (const file of (await walk(output)).filter((item) => item.endsWith(".html"))
     try { JSON.parse(json); } catch { errors.push(`${relative}: invalid JSON-LD`); }
   }
   if (!/<script type="application\/ld\+json">/.test(html) || !/"@type":"Person"/.test(html)) errors.push(`${relative}: missing Person structured data`);
+  const graph = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1] || "null")?.["@graph"];
+  if (!Array.isArray(graph) || !graph.some((item) => item["@type"] === "Person" && item.name === "Katarzyna Klau Michalczak" && item.alternateName === "Katarzyna Michalczak" && item.image === `${siteUrl}/images/portrait-katarzyna-new.jpg`)) errors.push(`${relative}: incomplete author identity schema`);
+  if (definition?.key === "home" && !graph?.some((item) => item["@type"] === "WebSite" && item.url === `${siteUrl}/` && item.name === "Katarzyna Klau Michalczak")) errors.push(`${relative}: missing site name schema`);
   if (/\bundefined\b/.test(html)) errors.push(`${relative}: contains undefined output`);
   if (/Wkrótce|Krótki film|book-cover-placeholder/.test(html)) errors.push(`${relative}: contains unfinished placeholder content`);
   for (const [, attributes] of html.matchAll(/<img\b([^>]*)>/g)) {
@@ -97,7 +100,7 @@ for (const file of (await walk(output)).filter((item) => item.endsWith(".html"))
 }
 
 if (versions.size !== 1) errors.push("Generated pages do not share one build version");
-for (const [name, width, height] of [["social-preview.png", 1200, 630], ["social-preview-en.png", 1200, 630], ["social-preview-es.png", 1200, 630], ["favicon-32.png", 32, 32], ["apple-touch-icon.png", 180, 180], ["icon-192.png", 192, 192], ["icon-512.png", 512, 512]]) {
+for (const [name, width, height] of [["social-preview.png", 1200, 630], ["social-preview-en.png", 1200, 630], ["social-preview-es.png", 1200, 630], ["favicon-32.png", 32, 32], ["favicon-96.png", 96, 96], ["apple-touch-icon.png", 180, 180], ["icon-192.png", 192, 192], ["icon-512.png", 512, 512]]) {
   try {
     const bytes = await readFile(path.join(output, name));
     if (bytes.subarray(0, 8).toString("hex") !== "89504e470d0a1a0a" || bytes.readUInt32BE(16) !== width || bytes.readUInt32BE(20) !== height) errors.push(`${name}: invalid PNG or dimensions`);

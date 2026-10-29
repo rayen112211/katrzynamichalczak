@@ -39,6 +39,7 @@ async function main() {
   try {
     const icon32 = await renderSvg(browser, icon, 32, 32);
     await writeFile(path.join(root, "public", "favicon-32.png"), icon32);
+    await writeFile(path.join(root, "public", "favicon-96.png"), await renderSvg(browser, icon, 96, 96));
     await writeFile(path.join(root, "public", "favicon.ico"), icoFromPng(icon32));
     for (const [size, name] of [[180, "apple-touch-icon.png"], [192, "icon-192.png"], [512, "icon-512.png"]]) {
       await writeFile(path.join(root, "public", name), await renderSvg(browser, icon, size, size));

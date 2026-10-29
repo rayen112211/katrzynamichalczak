@@ -323,6 +323,7 @@ function head(key, locale, siteUrl) {
   <meta name="twitter:image:alt" content="Katarzyna Klau Michalczak">
   <link rel="icon" href="/favicon-k.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
   <link rel="manifest" href="/site.webmanifest">
@@ -376,15 +377,33 @@ function footer(locale) {
 }
 
 function layout(key, locale, content, schema, siteUrl) {
+  const authorId = `${siteUrl}/#author`;
+  const isAuthorSchema = schema?.["@type"] === "Person";
+  const { "@context": _context, "@type": _type, ...authorDetails } = isAuthorSchema ? schema : {};
   const person = {
-    "@context": "https://schema.org",
     "@type": "Person",
+    "@id": authorId,
+    ...authorDetails,
     name: "Katarzyna Klau Michalczak",
     alternateName: "Katarzyna Michalczak",
     sameAs: authorProfiles,
-    url: siteUrl || undefined
+    url: `${siteUrl}/`,
+    image: `${siteUrl}/images/portrait-katarzyna-new.jpg`
   };
-  const structuredData = [person, schema].filter(Boolean).map((item) => `<script type="application/ld+json">${JSON.stringify(item).replaceAll("<", "\\u003c")}</script>`).join("\n");
+  const pageSchema = !isAuthorSchema && schema ? (({ "@context": _context, ...rest }) => rest)(schema) : null;
+  const website = key === "home" ? {
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+    name: "Katarzyna Klau Michalczak",
+    alternateName: "Katarzyna Michalczak",
+    url: `${siteUrl}/`
+  } : null;
+  const about = key === "about" ? {
+    "@type": "AboutPage",
+    "@id": `${siteUrl}${routeFor(key, locale).path}#about`,
+    mainEntity: { "@id": authorId }
+  } : null;
+  const structuredData = `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": [person, website, about, pageSchema].filter(Boolean) }).replaceAll("<", "\\u003c")}</script>`;
   return `${head(key, locale, siteUrl).replace("</head>", `${structuredData}\n</head>`)}
 ${header(key, locale)}
 <main id="main">${content}</main>
