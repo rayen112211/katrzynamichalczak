@@ -46,7 +46,8 @@ for (const file of (await walk(output)).filter((item) => item.endsWith(".html"))
     const canonical = `${siteUrl}${definition[expectedLanguage].path}`;
     if (!html.includes(`rel="canonical" href="${canonical}"`) || !html.includes(`property="og:url" content="${canonical}"`)) errors.push(`${relative}: incorrect canonical or Open Graph URL`);
   }
-  if (!/<title>[^<]*Katarzyna Klau Michalczak/.test(html)) errors.push(`${relative}: inconsistent author name in title`);
+  if (!/<title>[^<]*Katarzyna Klau Michalczak/.test(html) && !(relative === "index.html" && html.includes("<title>Katarzyna Michalczak — oficjalna strona poetki i pisarki</title>"))) errors.push(`${relative}: inconsistent author name in title`);
+  if (definition?.key === "home" && !html.includes("Katarzyna Michalczak ·")) errors.push(`${relative}: missing visible publishing name`);
   if (!/class="nav-cta"/.test(html) || !/class="photo-credits"/.test(html)) errors.push(`${relative}: missing shared navigation or photo credits`);
   if (!html.includes('href="mailto:kasia.michalczak@gmail.com"')) errors.push(`${relative}: missing working email link`);
   if (!/property="og:image:alt" content="[^"]+"/.test(html)) errors.push(`${relative}: missing social image description`);
@@ -57,9 +58,10 @@ for (const file of (await walk(output)).filter((item) => item.endsWith(".html"))
   for (const [name, value] of [["twitter:card", "summary_large_image"], ["twitter:image", socialImage]]) {
     if (!html.includes(`name="${name}" content="${value}"`)) errors.push(`${relative}: incorrect ${name}`);
   }
-  for (const asset of ["/favicon-k.svg", "/favicon-32.png", "/favicon-96.png", "/favicon.ico", "/apple-touch-icon.png", "/site.webmanifest"]) {
+  for (const asset of ["/favicon-96.png", "/apple-touch-icon.png", "/site.webmanifest"]) {
     if (!html.includes(`href="${asset}"`)) errors.push(`${relative}: missing icon reference ${asset}`);
   }
+  if ((html.match(/<link rel="icon"/g) || []).length !== 1) errors.push(`${relative}: ambiguous favicon links`);
   if (html.includes(".vercel.app")) errors.push(`${relative}: old preview domain found in metadata`);
   const version = html.match(/name="build-version" content="([^"]+)"/)?.[1];
   if (!version) errors.push(`${relative}: missing build version`);

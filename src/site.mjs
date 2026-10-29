@@ -208,7 +208,7 @@ export const authorProfiles = [
 
 const pageData = {
   pl: {
-    home: { title: "Katarzyna Klau Michalczak — poetka i pisarka", description: "Katarzyna Klau Michalczak (Katarzyna Michalczak): poetka i pisarka, autorka „Zwiezdy” i „Synu, jesteś kotem”. Spotkania autorskie, warsztaty, panele." },
+    home: { title: "Katarzyna Michalczak — oficjalna strona poetki i pisarki", description: "Katarzyna Michalczak (Katarzyna Klau Michalczak): oficjalna strona autorska. Książki „Zwiezda” i „Synu, jesteś kotem”, artykuły, spotkania i warsztaty." },
     about: { title: "O mnie — Katarzyna Klau Michalczak", description: "Poetka, pisarka, doktorka socjologii. Osiem książek, nominacje do Nagrody Literackiej Gdynia i Nagrody KOS." },
     books: { title: "Książki — Katarzyna Klau Michalczak", description: "Poezja, opowiadania i proza Katarzyny Klau Michalczak — od „Pamięci przyjęć” po „Zwiezdę”." },
     poetry: { title: "Poezja — Katarzyna Klau Michalczak", description: "Tomy wierszy Katarzyny Michalczak: „Pamięć przyjęć”, „Tysiąc saun”, „śń”." },
@@ -321,10 +321,7 @@ function head(key, locale, siteUrl) {
   <meta name="twitter:description" content="${esc(meta.description)}">
   <meta name="twitter:image" content="${socialImage}">
   <meta name="twitter:image:alt" content="Katarzyna Klau Michalczak">
-  <link rel="icon" href="/favicon-k.svg" type="image/svg+xml">
-  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96">
-  <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="/styles.css">
@@ -457,6 +454,7 @@ function homePage(locale, siteUrl) {
       <div class="hero-copy reveal">
         <p class="eyebrow">${strings.role}</p>
         <h1><span>Katarzyna</span> <span class="hero-klau">Klau</span> <span>Michalczak</span></h1>
+        <p class="hero-identity">${locale === "pl" ? "Katarzyna Michalczak · oficjalna strona autorska" : locale === "en" ? "Katarzyna Michalczak · official author website" : "Katarzyna Michalczak · sitio oficial de la autora"}</p>
         <p class="hero-tagline">${strings.tagline}</p><p class="hero-punchline">${strings.punchline}</p>
         <div class="hero-actions"><a class="hero-button hero-button-primary" href="${routeFor("books", locale).path}">${strings.homeCtaBooks} ${arrow}</a><a class="hero-button" href="${routeFor("contact", locale).path}">${strings.homeCtaInvite} ${arrow}</a></div>
       </div>

@@ -190,6 +190,7 @@ main [id] { scroll-margin-top: 2rem; }
 
 .hero-copy { position: relative; z-index: 2; }
 .hero-copy .eyebrow { color: var(--red); }
+.hero-identity { margin: 1.8rem 0 0; color: var(--ink); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 .hero-tagline { max-width: 16ch; margin: 1.25rem 0 .45rem; color: var(--red); font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.8rem); line-height: 1.05; }
 .hero-punchline { margin: 0 0 1.5rem; font-family: var(--serif); font-size: clamp(1rem, 1.4vw, 1.25rem); font-style: italic; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: 2rem; }
